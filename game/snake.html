@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页贪吃蛇</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #game-container {
+            position: relative;
+        }
+        
+        #game-canvas {
+            border: 2px solid #333;
+            background-color: #222;
+        }
+        
+        #score-display {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        #game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        #start-btn, #restart-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #start-btn:hover, #restart-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .controls p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>贪吃蛇游戏</h1>
+    
+    <div id="game-container">
+        <canvas id="game-canvas" width="400" height="400"></canvas>
+        <div id="game-over">
+            <h2>游戏结束!</h2>
+            <p id="final-score">得分: 0</p>
+            <button id="restart-btn">重新开始</button>
+        </div>
+    </div>
+    
+    <div id="score-display">得分: 0</div>
+    
+    <div class="controls">
+        <p>使用方向键或WASD控制蛇的移动</p>
+        <p>按空格键暂停/继续游戏</p>
+    </div>
+    
+    <button id="start-btn">开始游戏</button>
+    
+    <script src="snake.js"></script>
+</body>
+</html>
