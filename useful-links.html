@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的链接收藏</title>
+    <title>实用链接收藏</title>
     <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --background-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2b2d42;
+            --text-secondary: #6c757d;
+            --border-color: #e9ecef;
+            --hover-bg: #f1f8fe;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e6f7ff;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--background-color);
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: var(--text-color);
+            line-height: 1.6;
         }
         
         .container {
@@ -20,42 +33,46 @@
         
         h1 {
             text-align: center;
-            color: #006666;
+            color: var(--primary-color);
             margin-bottom: 30px;
-            font-size: 2.2em;
+            font-size: 2.4em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
         
         .links-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
         
         .link-box {
-            background-color: #f0fafa;
-            border-radius: 10px;
-            padding: 18px;
-            box-shadow: 0 4px 8px rgba(0, 100, 100, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid #008080;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--accent-color);
         }
         
         .link-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 100, 100, 0.15);
+            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.12);
         }
         
         .link-title {
-            font-size: 1.2em;
-            margin: 0 0 12px 0;
-            color: #006666;
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
+            font-weight: 600;
         }
         
         .link-title i {
-            margin-right: 10px;
+            margin-right: 12px;
             font-size: 1.4em;
+            color: var(--accent-color);
         }
         
         .link-list {
@@ -65,9 +82,9 @@
         }
         
         .link-list li {
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed #b2d8d8;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
         }
         
         .link-list li:last-child {
@@ -78,28 +95,34 @@
         
         .link-list a {
             text-decoration: none;
-            color: #004d4d;
+            color: var(--text-color);
             display: block;
-            padding: 5px 8px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
         }
         
         .link-list a:hover {
-            background-color: #d1f0f0;
-            color: #003333;
+            background-color: var(--hover-bg);
+            color: var(--secondary-color);
+            transform: translateX(3px);
         }
         
         .link-description {
             font-size: 0.9em;
-            color: #669999;
-            margin-top: 5px;
-            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            line-height: 1.5;
         }
         
         @media (max-width: 600px) {
             .links-container {
                 grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
             }
         }
     </style>
@@ -241,7 +264,7 @@
                         <div class="link-description">计算机科学教育新生态</div>
                     </li>
                     <li>
-                        <a href="https://www.khanacademy.org" target="_blank">OI-Wiki</a>
+                        <a href="https://oi-wiki.org" target="_blank">OI-Wiki</a>
                         <div class="link-description">某大型游戏线上攻略，内含炫酷算术魔法</div>
                     </li>
                 </ul>

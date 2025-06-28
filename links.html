@@ -7,10 +7,10 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #1a1a1a;
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: #e0e0e0;
         }
         
         .container {
@@ -20,8 +20,10 @@
         
         h1 {
             text-align: center;
-            color: #444;
+            color: #7fdbff;
             margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         
         .links-container {
@@ -31,19 +33,25 @@
         }
         
         .link-box {
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #7fdbff;
+            transition: transform 0.2s ease;
+        }
+        
+        .link-box:hover {
+            transform: translateY(-3px);
         }
         
         .link-title {
-            font-size: 1.1em;
-            margin: 0 0 10px 0;
-            color: #333;
+            font-size: 1.2em;
+            margin: 0 0 12px 0;
+            color: #7fdbff;
             padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #3d3d3d;
+            font-weight: 500;
         }
         
         .link-list {
@@ -53,29 +61,44 @@
         }
         
         .link-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #3d3d3d;
+        }
+        
+        .link-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         
         .link-list a {
             text-decoration: none;
-            color: #06c;
+            color: #7fdbff;
             display: block;
-            padding: 3px 0;
+            padding: 5px 0;
+            transition: color 0.2s;
         }
         
         .link-list a:hover {
+            color: #b6e6ff;
             text-decoration: underline;
         }
         
         .link-description {
-            font-size: 0.8em;
-            color: #666;
-            margin-top: 2px;
+            font-size: 0.85em;
+            color: #a0a0a0;
+            margin-top: 3px;
+            line-height: 1.4;
         }
         
         @media (max-width: 600px) {
             .links-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .link-box {
+                padding: 15px;
             }
         }
     </style>
@@ -136,6 +159,11 @@
                         <div class="link-description">Useful And Fast</div>
                     </li>
                 </ul>
+            </div>
+            
+            <!-- 可以添加第四个空盒子保持对称 -->
+            <div class="link-box" style="border-left-color: transparent; background-color: transparent; box-shadow: none;">
+                <!-- 空白盒子保持布局平衡 -->
             </div>
         </div>
     </div>
