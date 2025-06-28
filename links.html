@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的链接收藏</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .link-box {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+        
+        .link-title {
+            font-size: 1.1em;
+            margin: 0 0 10px 0;
+            color: #333;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .link-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .link-list li {
+            margin-bottom: 8px;
+        }
+        
+        .link-list a {
+            text-decoration: none;
+            color: #06c;
+            display: block;
+            padding: 3px 0;
+        }
+        
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .link-description {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        @media (max-width: 600px) {
+            .links-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Links from Yaten-Z</h1>
+        
+        <div class="links-container">
+            <!-- 第一个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title">个人主页 & Blog网页</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://yaten.xyz" target="_blank">Yaten-Z's home</a>
+                        <div class="link-description">Yaten-Z的主页</div>
+                    </li>
+                    <li>
+                        <a href="https://blog.yaten.xyz" target="_blank">博客主页「落鲸」</a>
+                        <div class="link-description">「用符号雕刻时间，用逻辑照亮未知」</div>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Yaten-Z/" target="_blank">Github主页</a>
+                        <div class="link-description">有空来看看</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第二个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title">Game</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://yaten.xyz/game/snake.html" target="_blank">贪吃蛇</a>
+                        <div class="link-description">看看你有多少积分·_·</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第三个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title">其他网页</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://yaten.xyz/book.html" target="_blank">书库</a>
+                        <div class="link-description">知识的殿堂（啥也没有）</div>
+                    </li>
+                    <li>
+                        <a href="https://yaten.xyz/pay.html" target="_blank">Support me</a>
+                        <div class="link-description">给我点杯咖啡☕</div>
+                    </li>
+                    <li>
+                        <a href="https://blog.yaten.xyz/links" target="_blank">友链</a>
+                        <div class="link-description">Be Friend Forever</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
