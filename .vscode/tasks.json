@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            //这个名字需要和launch.json的preLaunchTask名一致
+            "label": "clang++ build",
+            "type": "shell",
+            "command": "clang++", //使用什么命令
+            //命令的参数
+            "args": [
+                "-std=c++14",  // 指定 C++14 标准，可以自己选是什么版本的，如果要c++23，那么就写-std=c++23即可
+                "-Wall",       // 打开所有警告
+                "${fileDirname}\\${fileBasename}", //源文件名,在工作区的任何文件夹中都能使用
+                "-o",            // 编译输出
+                "${fileDirname}\\${fileBasenameNoExtension}.exe", //输出名，在工作区的任何文件夹中都能使用
+                "-g"           // 带调试信息
+            ],
+            //下面参数对于单文件意义不大
+            "group": {
+                //表示这个任务属于 构建组（build group）。构建组的任务通常用于编译或构建项目。
+                "kind": "build",
+                //表示这个任务是其所属组（这里是 build 组）的 默认任务。
+                "isDefault": true
+            }
+        }
+    ]
+}
