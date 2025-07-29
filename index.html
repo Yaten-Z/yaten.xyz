@@ -14,8 +14,8 @@
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
-            color: #e2e8f0;
-            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+            color: #cbd5e1;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #111827 100%);
             min-height: 100vh;
         }
         
@@ -34,11 +34,11 @@
             top: 20px;
             left: 20px;
             height: calc(100vh - 40px);
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(71, 85, 105, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(31, 41, 55, 0.4);
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -48,7 +48,7 @@
         .sidebar-profile {
             padding: 40px 30px 30px;
             text-align: center;
-            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            border-bottom: 1px solid rgba(31, 41, 55, 0.4);
         }
         
         .sidebar-nav {
@@ -67,13 +67,13 @@
 
         
         .card {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             overflow: hidden;
             transition: transform 0.3s ease;
-            border: 1px solid rgba(100, 116, 139, 0.2);
+            border: 1px solid rgba(31, 41, 55, 0.3);
         }
         
         .card:hover {
@@ -81,10 +81,10 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
             padding: 60px 40px;
             text-align: center;
-            color: #f1f5f9;
+            color: #e5e7eb;
             position: relative;
             overflow: hidden;
         }
@@ -96,7 +96,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
             animation: float 20s linear infinite;
         }
         
@@ -110,8 +110,8 @@
             height: 120px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 3px solid rgba(96, 165, 250, 0.3);
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+            border: 3px solid rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1e40af, #6366f1, #0891b2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -137,13 +137,13 @@
         .sidebar-name {
             font-size: 1.8em;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #e5e7eb;
             margin-bottom: 10px;
         }
         
         .sidebar-title {
             font-size: 1em;
-            color: #cbd5e1;
+            color: #9ca3af;
             margin-bottom: 30px;
             opacity: 0.9;
         }
@@ -161,7 +161,7 @@
         .sidebar-nav-link {
             display: block;
             width: 100%;
-            color: #cbd5e1;
+            color: #9ca3af;
             text-decoration: none;
             font-weight: 500;
             padding: 12px 20px;
@@ -171,13 +171,13 @@
         }
         
         .sidebar-nav-link:hover {
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.1);
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.08);
         }
         
         .sidebar-nav-link.active {
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.15);
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.12);
         }
         
         .hero h1 {
@@ -185,7 +185,7 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
         
         .hero p {
@@ -208,7 +208,7 @@
         .section h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            color: #60a5fa;
+            color: #3b82f6;
             position: relative;
             padding-bottom: 10px;
         }
@@ -220,14 +220,14 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #60a5fa, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #3b82f6, #1e40af, #6366f1);
             border-radius: 2px;
         }
         
         .intro-text {
             font-size: 1.1em;
             line-height: 1.8;
-            color: #cbd5e1;
+            color: #9ca3af;
             margin-bottom: 20px;
         }
         
@@ -239,8 +239,8 @@
         }
         
         .skill-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            color: #f1f5f9;
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
+            color: #e5e7eb;
             padding: 20px 15px;
             border-radius: 16px;
             text-align: center;
@@ -250,13 +250,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid rgba(71, 85, 105, 0.4);
+            border: 1px solid rgba(31, 41, 55, 0.5);
         }
         
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
-            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
         }
         
         .skill-icon {
@@ -282,27 +282,27 @@
         }
         
         .contact-item {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             padding: 20px;
             border-radius: 16px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(71, 85, 105, 0.4);
+            border: 1px solid rgba(31, 41, 55, 0.5);
         }
         
         .contact-item:hover {
-            background: rgba(96, 165, 250, 0.2);
-            color: #f1f5f9;
-            border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.15);
+            color: #e5e7eb;
+            border-color: #3b82f6;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.15);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
         }
         
         .contact-icon {
             font-size: 2em;
             margin-bottom: 10px;
             display: block;
-            color: #60a5fa;
+            color: #3b82f6;
             transition: color 0.3s ease;
         }
         
@@ -323,8 +323,8 @@
         .footer {
             text-align: center;
             padding: 30px;
-            background: rgba(2, 6, 23, 0.9);
-            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.98);
+            color: #6b7280;
             font-size: 0.9em;
         }
         
@@ -359,7 +359,7 @@
         
         .shape {
             position: absolute;
-            opacity: 0.1;
+            opacity: 0.05;
             animation: float-shapes 15s infinite linear;
         }
         
@@ -426,7 +426,7 @@
                 <div class="section">
                     <h2>个人介绍</h2>
                     <p class="intro-text">
-                        Hello啊！我是 风与路人。在网上，我用“风与路人”、“Yaten-Z”、“Vlexander”等名字遨游。
+                        Hello啊！我是 风与路人。在网上，我用"风与路人"、"Yaten-Z"、"Vlexander"等名字遨游。
                     </p>
                     <p class="intro-text">
                         现在我是一名初三学生，平时喜欢编程、阅读和发癫。我对技术充满热情，尤其是 OI 和 Web。

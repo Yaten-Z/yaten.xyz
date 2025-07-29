@@ -14,8 +14,8 @@
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
-            color: #e2e8f0;
-            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+            color: #cbd5e1;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #111827 100%);
             min-height: 100vh;
         }
         
@@ -34,11 +34,11 @@
             top: 20px;
             left: 20px;
             height: calc(100vh - 40px);
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(71, 85, 105, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(31, 41, 55, 0.4);
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -48,7 +48,7 @@
         .sidebar-profile {
             padding: 40px 30px 30px;
             text-align: center;
-            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            border-bottom: 1px solid rgba(31, 41, 55, 0.4);
         }
         
         .sidebar-nav {
@@ -64,18 +64,45 @@
             width: calc(100vw - 320px);
         }
         
+
+        
         .card {
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
             overflow: hidden;
             transition: transform 0.3s ease;
-            border: 1px solid rgba(100, 116, 139, 0.2);
+            border: 1px solid rgba(31, 41, 55, 0.3);
         }
         
         .card:hover {
             transform: translateY(-5px);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
+            padding: 60px 40px;
+            text-align: center;
+            color: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
         .sidebar-avatar {
@@ -83,8 +110,8 @@
             height: 120px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 3px solid rgba(96, 165, 250, 0.3);
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+            border: 3px solid rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1e40af, #6366f1, #0891b2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -110,15 +137,20 @@
         .sidebar-name {
             font-size: 1.8em;
             font-weight: 600;
-            color: #f1f5f9;
+            color: #e5e7eb;
             margin-bottom: 10px;
         }
         
         .sidebar-title {
             font-size: 1em;
-            color: #cbd5e1;
+            color: #9ca3af;
             margin-bottom: 30px;
             opacity: 0.9;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 20px 30px;
         }
         
         .sidebar-nav-item {
@@ -129,7 +161,7 @@
         .sidebar-nav-link {
             display: block;
             width: 100%;
-            color: #cbd5e1;
+            color: #9ca3af;
             text-decoration: none;
             font-weight: 500;
             padding: 12px 20px;
@@ -139,13 +171,30 @@
         }
         
         .sidebar-nav-link:hover {
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.1);
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.08);
         }
         
         .sidebar-nav-link.active {
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.15);
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.12);
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .content {
@@ -159,7 +208,7 @@
         .section h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            color: #60a5fa;
+            color: #3b82f6;
             position: relative;
             padding-bottom: 10px;
         }
@@ -171,15 +220,58 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #60a5fa, #3b82f6, #8b5cf6);
+            background: linear-gradient(90deg, #3b82f6, #1e40af, #6366f1);
             border-radius: 2px;
         }
         
         .intro-text {
             font-size: 1.1em;
             line-height: 1.8;
-            color: #cbd5e1;
-            margin-bottom: 30px;
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
+            color: #e5e7eb;
+            padding: 20px 15px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(31, 41, 55, 0.5);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .skill-icon {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .skill-card h3 {
+            font-size: 1em;
+            margin: 0;
+        }
+        
+        .skill-card p {
+            display: none;
         }
         
         .friend-links-grid {
@@ -190,21 +282,21 @@
         }
         
         .friend-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
             border-radius: 16px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(71, 85, 105, 0.4);
+            border: 1px solid rgba(31, 41, 55, 0.5);
             text-decoration: none;
         }
         
         .friend-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
-            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
         }
         
         .friend-avatar {
@@ -212,7 +304,7 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(96, 165, 250, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.4);
             transition: transform 0.3s ease;
         }
         
@@ -222,45 +314,82 @@
         
         .friend-info {
             flex: 1;
-            color: #f1f5f9;
+            color: #e5e7eb;
         }
         
         .friend-name {
             font-size: 1.2em;
             font-weight: 600;
             margin-bottom: 5px;
-            color: #60a5fa;
+            color: #3b82f6;
         }
         
         .friend-url {
             font-size: 0.9em;
-            color: #94a3b8;
+            color: #6b7280;
             margin-bottom: 8px;
             text-decoration: none;
         }
         
         .friend-description {
             font-size: 0.95em;
-            color: #cbd5e1;
+            color: #9ca3af;
             opacity: 0.9;
             line-height: 1.4;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(31, 41, 55, 0.5);
+        }
+        
+        .contact-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: #e5e7eb;
+            border-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
+        }
+        
+        .contact-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+            color: #3b82f6;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            color: white;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .contact-item p {
+            font-size: 0.9em;
+            opacity: 0.8;
         }
         
         .footer {
             text-align: center;
             padding: 30px;
-            background: rgba(2, 6, 23, 0.9);
-            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.98);
+            color: #6b7280;
             font-size: 0.9em;
-        }
-        
-        .footer a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -279,10 +408,20 @@
                 width: 100%;
             }
             
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
             .content {
                 padding: 30px 20px;
             }
             
+            .skills-grid,
+            .contact-grid,
             .friend-links-grid {
                 grid-template-columns: 1fr;
             }
@@ -300,7 +439,7 @@
         
         .shape {
             position: absolute;
-            opacity: 0.1;
+            opacity: 0.05;
             animation: float-shapes 15s infinite linear;
         }
         
@@ -362,77 +501,77 @@
     
     <div class="container">
         <div class="main-content">
-            <div class="card">
-                <div class="content">
-                    <div class="section">
-                        <h2>友情链接</h2>
-                        <p class="intro-text">
-                            以下是一些优秀的博主朋友们，他们的博客都很有趣，值得一看！
-                        </p>
+        <div class="card">
+            <div class="content">
+                <div class="section">
+                    <h2>友情链接</h2>
+                    <p class="intro-text">
+                        以下是一些优秀的博主朋友们，他们的博客都很有趣，值得一看！
+                    </p>
+                    
+                    <div class="friend-links-grid">
+                        <a href="https://blog.yaten.xyz" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://s1.imagehub.cc/images/2025/05/30/55439681d8b3c2d988638c133e160a56.jpg" alt="逻技簿">
+                            <div class="friend-info">
+                                <div class="friend-name">逻技簿</div>
+                                <div class="friend-url">blog.yaten.xyz</div>
+                                <div class="friend-description">「用符号雕刻时间，用逻辑照亮未知」</div>
+                            </div>
+                        </a>
                         
-                        <div class="friend-links-grid">
-                            <a href="https://blog.yaten.xyz" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://s1.imagehub.cc/images/2025/05/30/55439681d8b3c2d988638c133e160a56.jpg" alt="逻技簿">
-                                <div class="friend-info">
-                                    <div class="friend-name">逻技簿</div>
-                                    <div class="friend-url">blog.yaten.xyz</div>
-                                    <div class="friend-description">「用符号雕刻时间，用逻辑照亮未知」</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://linmohan.fun/" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://s1.imagehub.cc/images/2025/05/23/b96c20ef502e4dfaab9bdf6d57c7418f.png" alt="技研录">
-                                <div class="friend-info">
-                                    <div class="friend-name">技研录</div>
-                                    <div class="friend-url">linmohan.fun</div>
-                                    <div class="friend-description">「代码重构世界，逻辑解构真理」</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://blog.aqcoder.cn" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://blog.aqcoder.cn/img/avatar.png" alt="枫叶">
-                                <div class="friend-info">
-                                    <div class="friend-name">枫叶</div>
-                                    <div class="friend-url">blog.aqcoder.cn</div>
-                                    <div class="friend-description">分享知识，认识世界</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://blog.study996.cn/" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2071916845&spec=640" alt="寻梦城">
-                                <div class="friend-info">
-                                    <div class="friend-name">寻梦城</div>
-                                    <div class="friend-url">blog.study996.cn</div>
-                                    <div class="friend-description">欲买桂花同载酒，终不似，少年游</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://blog.jerryz.com.cn/" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://img.examcoo.com/ask/7386438/202111/163626915705190.jpg" alt="Jerry Zhou">
-                                <div class="friend-info">
-                                    <div class="friend-name">Jerry Zhou</div>
-                                    <div class="friend-url">blog.jerryz.com.cn</div>
-                                    <div class="friend-description">永远相信美好的事情即将发生</div>
-                                </div>
-                            </a>
-                            
-                            <a href="https://love.xingji.fun/" target="_blank" class="friend-card">
-                                <img class="friend-avatar" src="https://i.p-i.vip/47/20240920-66ed7b168c38c.jpg" alt="XingJiのBlog">
-                                <div class="friend-info">
-                                    <div class="friend-name">XingJiのBlog</div>
-                                    <div class="friend-url">love.xingji.fun</div>
-                                    <div class="friend-description">迄今所有人生都大写着失败，但不妨碍我继续向前✨</div>
-                                </div>
-                            </a>
-                        </div>
+                        <a href="https://linmohan.fun/" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://s1.imagehub.cc/images/2025/05/23/b96c20ef502e4dfaab9bdf6d57c7418f.png" alt="技研录">
+                            <div class="friend-info">
+                                <div class="friend-name">技研录</div>
+                                <div class="friend-url">linmohan.fun</div>
+                                <div class="friend-description">「代码重构世界，逻辑解构真理」</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://blog.aqcoder.cn" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://blog.aqcoder.cn/img/avatar.png" alt="枫叶">
+                            <div class="friend-info">
+                                <div class="friend-name">枫叶</div>
+                                <div class="friend-url">blog.aqcoder.cn</div>
+                                <div class="friend-description">分享知识，认识世界</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://blog.study996.cn/" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=2071916845&spec=640" alt="寻梦城">
+                            <div class="friend-info">
+                                <div class="friend-name">寻梦城</div>
+                                <div class="friend-url">blog.study996.cn</div>
+                                <div class="friend-description">欲买桂花同载酒，终不似，少年游</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://blog.jerryz.com.cn/" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://img.examcoo.com/ask/7386438/202111/163626915705190.jpg" alt="Jerry Zhou">
+                            <div class="friend-info">
+                                <div class="friend-name">Jerry Zhou</div>
+                                <div class="friend-url">blog.jerryz.com.cn</div>
+                                <div class="friend-description">永远相信美好的事情即将发生</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://love.xingji.fun/" target="_blank" class="friend-card">
+                            <img class="friend-avatar" src="https://i.p-i.vip/47/20240920-66ed7b168c38c.jpg" alt="XingJiのBlog">
+                            <div class="friend-info">
+                                <div class="friend-name">XingJiのBlog</div>
+                                <div class="friend-url">love.xingji.fun</div>
+                                <div class="friend-description">迄今所有人生都大写着失败，但不妨碍我继续向前✨</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                
-                <div class="footer">
-                    <p>&copy; 2025 风与路人</p>
-                    <p><a href="copyright.html">Copyright</a> - Yaten-Z</p>
-                </div>
             </div>
+            
+            <div class="footer">
+                <p>&copy; 2025 风与路人</p>
+                <p><a href="copyright.html">Copyright</a> - Yaten-Z</p>
+            </div>
+        </div>
         </div>
     </div>
     
@@ -451,6 +590,17 @@
                 });
             });
         });
+        
+        // 添加脉冲动画的CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
