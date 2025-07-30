@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>风与路人 の 主页</title>
     <style>
+        :root {
+            /* 暗色主题变量 */
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2a2a2a;
+            --bg-card: #333333;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #999999;
+            --accent-color: #4f9aff;
+            --accent-hover: #6bb6ff;
+            --border-color: #555555;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] {
+            /* 浅色主题变量 */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+            --accent-color: #0066cc;
+            --accent-hover: #004499;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -14,9 +42,10 @@
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
-            color: #cbd5e1;
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #111827 100%);
+            color: var(--text-primary);
+            background: var(--bg-primary);
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
@@ -34,21 +63,22 @@
             top: 20px;
             left: 20px;
             height: calc(100vh - 40px);
-            background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(20px);
+            background: var(--bg-card);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(31, 41, 55, 0.4);
+            box-shadow: 0 25px 50px var(--shadow-color);
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             overflow-y: auto;
             z-index: 10;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .sidebar-profile {
             padding: 40px 30px 30px;
             text-align: center;
-            border-bottom: 1px solid rgba(31, 41, 55, 0.4);
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
         }
         
         .sidebar-nav {
@@ -64,16 +94,13 @@
             width: calc(100vw - 320px);
         }
         
-
-        
         .card {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
+            background: var(--bg-card);
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 50px var(--shadow-color);
             overflow: hidden;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(31, 41, 55, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
         }
         
         .card:hover {
@@ -81,12 +108,13 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
+            background: var(--bg-secondary);
             padding: 60px 40px;
             text-align: center;
-            color: #e5e7eb;
+            color: var(--text-primary);
             position: relative;
             overflow: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .hero::before {
@@ -96,7 +124,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(79,154,255,0.1)"/></svg>') repeat;
             animation: float 20s linear infinite;
         }
         
@@ -110,14 +138,14 @@
             height: 120px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 3px solid rgba(59, 130, 246, 0.4);
-            background: linear-gradient(135deg, #1e40af, #6366f1, #0891b2);
+            border: 3px solid var(--accent-color);
+            background: var(--accent-color);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 50px;
             color: white;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             overflow: hidden;
             position: relative;
         }
@@ -137,20 +165,17 @@
         .sidebar-name {
             font-size: 1.8em;
             font-weight: 600;
-            color: #e5e7eb;
+            color: var(--text-primary);
             margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
         
         .sidebar-title {
             font-size: 1em;
-            color: #9ca3af;
+            color: var(--text-secondary);
             margin-bottom: 30px;
             opacity: 0.9;
-        }
-        
-        .sidebar-nav {
-            flex: 1;
-            padding: 20px 30px;
+            transition: color 0.3s ease;
         }
         
         .sidebar-nav-item {
@@ -161,7 +186,7 @@
         .sidebar-nav-link {
             display: block;
             width: 100%;
-            color: #9ca3af;
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             padding: 12px 20px;
@@ -171,13 +196,39 @@
         }
         
         .sidebar-nav-link:hover {
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent-color);
+            background: rgba(79, 154, 255, 0.1);
         }
         
         .sidebar-nav-link.active {
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent-color);
+            background: rgba(79, 154, 255, 0.15);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .theme-icon {
+            margin-right: 8px;
+            font-size: 1.2em;
         }
         
         .hero h1 {
@@ -185,7 +236,7 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 4px var(--shadow-color);
         }
         
         .hero p {
@@ -208,9 +259,10 @@
         .section h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            color: #3b82f6;
+            color: var(--accent-color);
             position: relative;
             padding-bottom: 10px;
+            transition: color 0.3s ease;
         }
         
         .section h2::after {
@@ -220,15 +272,17 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #1e40af, #6366f1);
+            background: var(--accent-color);
             border-radius: 2px;
+            transition: background-color 0.3s ease;
         }
         
         .intro-text {
             font-size: 1.1em;
             line-height: 1.8;
-            color: #9ca3af;
+            color: var(--text-secondary);
             margin-bottom: 20px;
+            transition: color 0.3s ease;
         }
         
         .skills-grid {
@@ -239,24 +293,24 @@
         }
         
         .skill-card {
-            background: linear-gradient(135deg, #000000 0%, #111827 50%, #1f2937 100%);
-            color: #e5e7eb;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             padding: 20px 15px;
             border-radius: 16px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             min-height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid rgba(31, 41, 55, 0.5);
+            border: 1px solid var(--border-color);
         }
         
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 40px rgba(79, 154, 255, 0.15);
+            border-color: var(--accent-color);
         }
         
         .skill-icon {
@@ -282,27 +336,28 @@
         }
         
         .contact-item {
-            background: rgba(0, 0, 0, 0.9);
+            background: var(--bg-secondary);
             padding: 20px;
             border-radius: 16px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(31, 41, 55, 0.5);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
         }
         
         .contact-item:hover {
-            background: rgba(59, 130, 246, 0.15);
-            color: #e5e7eb;
-            border-color: #3b82f6;
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
+            box-shadow: 0 10px 25px rgba(79, 154, 255, 0.25);
         }
         
         .contact-icon {
             font-size: 2em;
             margin-bottom: 10px;
             display: block;
-            color: #3b82f6;
+            color: var(--accent-color);
             transition: color 0.3s ease;
         }
         
@@ -323,12 +378,41 @@
         .footer {
             text-align: center;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.98);
-            color: #6b7280;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
             font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-hover);
         }
         
         @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+            
             .hero {
                 padding: 40px 20px;
             }
@@ -359,8 +443,10 @@
         
         .shape {
             position: absolute;
-            opacity: 0.05;
+            opacity: 0.1;
             animation: float-shapes 15s infinite linear;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
         }
         
         .shape:nth-child(1) {
@@ -400,7 +486,7 @@
                 <img src="https://s1.imagehub.cc/images/2025/05/30/55439681d8b3c2d988638c133e160a56.jpg" alt="头像" onerror="this.style.display='none'; this.parentElement.innerHTML='👨‍💻'">
             </div>
             <h1 class="sidebar-name">风与路人</h1>
-            <p class="sidebar-title">在读初三生 | 平平无奇</p>
+            <p class="sidebar-title">等那场风，等那个你</p>
         </div>
         
         <nav class="sidebar-nav">
@@ -415,6 +501,11 @@
             </div>
             <div class="sidebar-nav-item">
                 <a href="https://yaten.xyz/links.html" class="sidebar-nav-link">网站</a>
+            </div>
+            
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-icon">🌙</span>
+                <span class="theme-text">浅色模式</span>
             </div>
         </nav>
     </div>
@@ -501,8 +592,37 @@
     </div>
     
     <script>
-        // 简单的交互效果
+        // 主题切换功能
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeText = document.querySelector('.theme-text');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = '浅色模式';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = '深色模式';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 页面加载时设置主题
         document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('.theme-icon');
+            const themeText = document.querySelector('.theme-text');
+            
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = '深色模式';
+            }
+            
             // 为技能卡片添加悬停效果
             const skillCards = document.querySelectorAll('.skill-card');
             skillCards.forEach(card => {
