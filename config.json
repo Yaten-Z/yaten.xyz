@@ -1,0 +1,108 @@
+{
+  "personal": {
+    "name": "风与路人",
+    "englishName": "Yaten-Z",
+    "title": "等那场风，等那个你",
+    "avatar": "https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg",
+    "avatarFallback": "👨‍💻",
+    "description": {
+      "paragraphs": [
+        "「Code is my comfort zone」",
+        "我是 Yaten-Z，一个热衷于 GitHub commit 数比朋友圈点赞数还多的初三生。",
+        "我喜欢 Linux、前端开发、Git 协作、数据库折腾、Markdown 写 blog 和 terminal 里的一切。",
+        "项目不一定完美，但必须有仓库。热爱自由，崇尚开源。",
+        "如果你能看到我深夜提交的 commit ，那我们一定是同类。"
+
+      ]
+    },
+    "characteristics": [
+      "文静内向",
+      "数学不好",
+      "物理不好",
+      "爱交朋友",
+      "不想开学",
+      "喜欢音乐",
+      "喜欢折腾",
+      "喜欢自由"
+    ]
+  },
+  "contact": {
+    "email": "Yaten-Z@outlook.com",
+    "qq": "2635802854",
+    "github": "github.com/Yaten-Z"
+  },
+  "links": {
+    "blog": "https://blog.yaten.xyz",
+    "homepage": "https://yaten.xyz",
+    "blogName": "逻技薄",
+    "personalBlog": {
+      "name": "逻技薄",
+      "url": "https://blog.yaten.xyz",
+      "description": "用符号雕刻时间，用逻辑照亮未知"
+    }
+  },
+  "friends": [
+      {
+        "name": "TATEN",
+        "url": "https://taten.xyz",
+        "avatar": "https://s1.imagehub.cc/images/2025/08/01/aacbcc1f6151e74eadb1d372e7caa5bf.png",
+        "description": "一群热爱编程的学生，致力于探索技术的无限可能。"
+      },
+      {
+        "name": "LINMOHAN",
+        "url": "https://home.linmohan.fun",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/30/0a2c858f1fa7d7ff3d480b9e2ab3dce0.jpg",
+        "description": "代码重构世界，逻辑解构真理"
+      },
+      {
+        "name": "HHYYYY",
+        "url": "https://hhyyyy.cn/",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/31/1fe122170bc941cc696119b9aaca6ead.jpg",
+        "description": "用科技之眼探索世界，用光影之笔记录瞬间"
+      },
+      {
+        "name": "LGCM",
+        "url": "http://www.LGCM.xyz",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/30/75fb3a7a7532703f2e7f0c095dc417f1.jpg",
+        "description": "半个软件工程师"
+      },
+      {
+        "name": "Errorsia",
+        "url": "http://errorsia.com",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/30/86668972c5b3fb5e440c6e1bba1f69db.png",
+        "description": "N/A"
+      },
+      {
+        "name": "HungryHenry",
+        "url": "https://hungryhenry.cn",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/31/4b1f583c02e682ac790c6bfa7a52ec0b.jpg",
+        "description": "不是在写bug，就是在debug🐛"
+      },
+      {
+        "name": "Ruibin_Ningh",
+        "url": "https://www.ruibin-ningh.top/",
+        "avatar": "https://s1.imagehub.cc/images/2025/07/31/b2e402249619e45fd0a227d7f5161d5a.jpg",
+        "description": "不争于表象，只专于底层"
+      },
+      {
+        "name": "Zyx_2012",
+        "url": "https://blog.zyx-2012.cn",
+        "avatar": "https://blog.zyx-2012.cn/upload/bb5afa63-810b-4610-8c1e-c0e47c534246.png",
+        "description": "专注于笔记、分享的博客"
+      },
+      {
+        "name": "GuYang17",
+        "url": "https://guyang17.github.io/",
+        "avatar": "https://avatars.githubusercontent.com/u/196782409?v=4",
+        "description": "编程爱好者 | Minecraft玩家"
+      }
+  ],
+  "friendPage": {
+    "intro": "常回来玩！有钱直接打赏我！"
+  },
+  "meta": {
+    "copyright": "© 2025 Yaten-Z. All rights reserved.",
+    "copyrightLink": "./copyright.html",
+    "lastUpdated": "2025年8月2日"
+  }
+}
