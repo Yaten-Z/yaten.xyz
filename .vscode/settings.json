@@ -26,6 +26,6 @@
     "editor.mouseWheelZoom": true, //是否可以让代码字体用CTRL+滚轮进行缩放，true就是可以
     "terminal.integrated.mouseWheelZoom": false, //是否可以让终端字体用CTRL+滚轮进行缩放，true就是可以
     "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font", //重要！！请和你刚才设置的字体一致
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "git.ignoreLimitWarning": true, //选择默认哪个终端打开编译
 }
