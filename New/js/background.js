@@ -28,7 +28,7 @@ function loadBackgroundImage(imageUrl) {
 document.addEventListener("DOMContentLoaded", function () {
     // 你的背景图片URL
     const backgroundImageUrl =
-        "https://picx.zhimg.com/100/v2-5c39f11f51c72b71082b5edfb10bb59b_r.jpg";
+        "https://linmohan.fun/yaten.png";
 
     // 开始加载背景图片
     loadBackgroundImage(backgroundImageUrl);
