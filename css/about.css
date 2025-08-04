@@ -1,0 +1,243 @@
+/* about.css - 专门为关于页面设计的样式 */
+
+/* 重置 body 高度，允许滚动 */
+body {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* 导航栏样式 */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.nav a {
+    color: #aad7ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav a:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateX(5px);
+    text-decoration: none;
+}
+
+/* 重写容器样式以适应更多内容 */
+.container {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 100px;
+    transform: none;
+}
+
+/* 头部区域 */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header .avatar {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 内容区域 */
+.content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 内容块样式 */
+.section {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #aad7ff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    text-align: left;
+}
+
+/* 技能网格布局 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: #aad7ff;
+    margin-bottom: 1rem;
+}
+
+.skill-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.skill-item p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* GitHub 统计样式 */
+.github-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 1.2rem;
+    color: #aad7ff;
+    margin-bottom: 0.8rem;
+}
+
+.stat-item p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* GitHub 链接 */
+.github-link {
+    text-align: center;
+}
+
+.github-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #aad7ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.github-link a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .nav a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .container {
+        padding: 70px 15px 80px;
+    }
+    
+    .section {
+        padding: 2rem;
+    }
+    
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .github-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .skill-item {
+        padding: 1.2rem;
+    }
+    
+    .skill-item i {
+        font-size: 2rem;
+    }
+}
