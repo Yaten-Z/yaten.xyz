@@ -9,12 +9,16 @@
 }
 
 /* 设置html和body的基础样式 */
-html,
+html {
+    height: 100%;
+    /* 确保html元素占满整个视窗高度 */
+}
+
 body {
     height: 100%;
     /* 设置高度为100%，占满整个视窗 */
     /* 设置背景图片 */
-    background: url("https://s1.imagehub.cc/images/2025/08/03/b486760ba638e3cdce4530f010dda90d.webp") no-repeat
+    background: url("https://s1.imagehub.cc/images/2025/08/03/1ba75e595cc9b598d1f312310147a1d5.png") no-repeat
         /* 不重复显示背景图 */
         center center
         /* 图片居中显示 */
@@ -65,22 +69,32 @@ body {
     /* 图片按比例裁剪填充容器 */
     margin-bottom: 1rem;
     /* 下方外边距1rem */
-    border: 2px solid #fff;
-    /* 添加白色边框 */
 }
 
 /* 主标题样式 */
 h1 {
     font-size: 2.5rem;
     /* 字体大小2.5倍根字体大小 */
-    margin-bottom: 1rem;
-    /* 下方外边距1rem */
 }
 
 /* 段落文字样式 */
 p {
     font-size: 1rem;
     /* 字体大小为根字体大小 */
+}
+
+/* 个人介绍样式 - 诗意的介绍文字 */
+.intro {
+    font-size: 1.2rem;
+    /* 字体大小稍大一些 */
+    font-style: italic;
+    /* 斜体字，增加诗意感 */
+    margin: 0.5rem 0 1.5rem 0;
+    /* 上下边距，与其他元素保持适当距离 */
+    opacity: 0.9;
+    /* 稍微透明，营造柔和感 */
+    font-weight: 300;
+    /* 字体粗细较细，更优雅 */
 }
 
 /* 链接容器样式 */

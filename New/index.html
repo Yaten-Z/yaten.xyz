@@ -4,115 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/background.css">
     <title>Yaten-Z</title>
-    <style>
-      /* 全局重置样式 - 清除所有元素的默认边距和内边距 */
-      * {
-        margin: 0;          /* 清除外边距 */
-        padding: 0;         /* 清除内边距 */
-        box-sizing: border-box;  /* 设置盒模型为border-box，让宽高包含padding和border */
-      }
 
-      /* 设置html和body的基础样式 */
-      html,
-      body {
-        height: 100%;       /* 设置高度为100%，占满整个视窗 */
-        /* 设置背景图片 */
-        background: url("https://s1.imagehub.cc/images/2025/08/03/b486760ba638e3cdce4530f010dda90d.webp")
-          no-repeat         /* 不重复显示背景图 */
-          center center     /* 图片居中显示 */
-          fixed;            /* 背景图固定，不随滚动而移动 */
-        background-size: cover;  /* 背景图覆盖整个容器，保持比例 */
-        /* 设置字体族 - 优先使用系统字体，提升性能和一致性 */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", sans-serif;
-        color: #111;        /* 设置默认文字颜色为深灰色 */
-      }
 
-      /* 主容器样式 - 用于页面内容的布局 */
-      .container {
-        height: 100%;       /* 容器高度占满整个视窗 */
-        display: flex;      /* 使用弹性布局 */
-        flex-direction: column;  /* 子元素垂直排列 */
-        align-items: center;     /* 子元素水平居中 */
-        justify-content: center; /* 子元素垂直居中 */
-        text-align: center; /* 文本居中对齐 */
-        padding: 20px;      /* 内边距20px，避免内容贴边 */
-        color: #fff;        /* 文字颜色设为白色 */
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);  /* 添加文字阴影，增强可读性 */
-        transform: translateY(-10%); /* 整体向上偏移10%，调整视觉中心 */
-      }
-
-      /* 头像样式 */
-      .avatar {
-        width: 120px;       /* 头像宽度 */
-        height: 120px;      /* 头像高度 */
-        border-radius: 50%; /* 设为圆形（50%的圆角） */
-        object-fit: cover;  /* 图片按比例裁剪填充容器 */
-        margin-bottom: 1rem; /* 下方外边距1rem */
-      }
-
-      /* 主标题样式 */
-      h1 {
-        font-size: 2.5rem;  /* 字体大小2.5倍根字体大小 */
-      }
-
-      /* 段落文字样式 */
-      p {
-        font-size: 1rem;    /* 字体大小为根字体大小 */
-      }
-
-      /* 个人介绍样式 - 诗意的介绍文字 */
-      .intro {
-        font-size: 1.2rem;     /* 字体大小稍大一些 */
-        font-style: italic;    /* 斜体字，增加诗意感 */
-        margin: 0.5rem 0 1.5rem 0;  /* 上下边距，与其他元素保持适当距离 */
-        opacity: 0.9;          /* 稍微透明，营造柔和感 */
-        font-weight: 300;      /* 字体粗细较细，更优雅 */
-      }
-
-      /* 链接容器样式 */
-      .links {
-        margin-top: 2rem;   /* 上方外边距2rem，与上面内容保持距离 */
-      }
-
-      /* 链接样式 */
-      .links a {
-        text-decoration: none;  /* 去除下划线 */
-        color: #aad7ff;     /* 设置链接颜色为浅蓝色 */
-        margin: 0 15px;     /* 左右外边距15px，链接之间保持间距 */
-        font-size: 2rem;    /* 图标字体大小2rem */
-      }
-
-      /* 链接鼠标悬停效果 */
-      .links a:hover {
-        text-decoration: underline;  /* 悬停时显示下划线 */
-      }
-
-      /* 页脚样式 */
-      footer {
-        position: fixed;    /* 固定定位 */
-        bottom: 10px;       /* 距离底部10px */
-        width: 100%;        /* 宽度100%，占满整行 */
-        text-align: center; /* 文本居中 */
-        font-size: 0.8rem;  /* 字体大小0.8倍根字体大小 */
-        color: #ffffff;     /* 文字颜色白色 */
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);  /* 文字阴影，增强可读性 */
-      }
-
-      /* 页脚链接样式 */
-      footer a {
-        color: #aad7ff;     /* 链接颜色浅蓝色 */
-        text-decoration: none;  /* 去除下划线 */
-      }
-
-      /* 页脚链接鼠标悬停效果 */
-      footer a:hover {
-        text-decoration: underline;  /* 悬停时显示下划线 */
-      }
-
-    </style>
   </head>
   <body>
     
@@ -140,5 +36,7 @@
       <br />
       <a href = "./copyright.html">Copyright</a> - Yaten-Z
     </footer>
+
+    <script src="js/background.js"></script>
   </body>
 </html>
