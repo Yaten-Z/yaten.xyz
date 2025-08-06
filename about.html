@@ -1,114 +1,145 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/about.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/about.css" />
     <title>关于我 - Yaten-Z</title>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle">
+      <button id="themeToggle" aria-label="切换主题">
+        <i class="fas fa-sun"></i>
+      </button>
+    </div>
+
     <!-- 导航栏 -->
     <div class="nav">
-        <a href="./index.html">
-            <i class="fas fa-arrow-left"></i>
-            返回首页
-        </a>
+      <a href="./index.html">
+        <i class="fas fa-arrow-left"></i>
+        返回首页
+      </a>
     </div>
 
     <div class="container">
-        <!-- 头部区域 -->
-        <div class="header">
-            <img
-                class="avatar"
-                src="https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg"
-                alt="头像"
-            />
-            <h1>Yaten-Z</h1>
-            <p class="intro">等那场风，等那个你</p>
+      <!-- 头部区域 -->
+      <div class="header">
+        <img
+          class="avatar"
+          src="https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg"
+          alt="头像"
+        />
+        <h1>Yaten-Z</h1>
+        <p class="intro">等那场风，等那个你</p>
+        <p>一个喜欢敲代码、听音乐、学点数学的普通初三生</p>
+      </div>
+
+      <!-- 内容区域 -->
+      <div class="content">
+        <!-- 特长技能 -->
+        <div class="section">
+          <h2><i class="fas fa-code"></i> 特长技能</h2>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <i class="fab fa-python"></i>
+              <h3>Python</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="50"></div>
+                </div>
+                <span class="progress-text">50%</span>
+              </div>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-js-square"></i>
+              <h3>JavaScript</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="20"></div>
+                </div>
+                <span class="progress-text">20%</span>
+              </div>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-html5"></i>
+              <h3>Web</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    data-progress="30
+                  "
+                  ></div>
+                </div>
+                <span class="progress-text">30%</span>
+              </div>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-calculator"></i>
+              <h3>数学</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="30"></div>
+                </div>
+                <span class="progress-text">30%</span>
+              </div>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-linux"></i>
+              <h3>Linux</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="20"></div>
+                </div>
+                <span class="progress-text">20%</span>
+              </div>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-database"></i>
+              <h3>竞赛算法</h3>
+              <div class="skill-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="75"></div>
+                </div>
+                <span class="progress-text">75%</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- 内容区域 -->
-        <div class="content">
-            <!-- 自我介绍 -->
-            <div class="section">
-                <h2><i class="fas fa-user"></i> 自我介绍</h2>
-                <p>你好，我是 Yaten-Z，一名热爱编程的初三学生。我对技术充满热情，喜欢探索新的编程语言和技术栈。在学习之余，我也热衷于数学，认为编程与数学有着密不可分的联系。</p>
-                <br>
-                <p>我相信技术能够改变世界，也希望通过自己的努力，能够为开源社区贡献一份力量。虽然年龄不大，但我有着对技术的执着追求和不断学习的热情。</p>
-            </div>
-
-            <!-- 特长技能 -->
-            <div class="section">
-                <h2><i class="fas fa-code"></i> 特长技能</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-python"></i>
-                        <h3>Python</h3>
-                        <p>熟悉 Python 语法，能够进行数据处理和算法实现</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-js-square"></i>
-                        <h3>JavaScript</h3>
-                        <p>掌握前端开发，能够创建交互式网页应用</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        <h3>Web 开发</h3>
-                        <p>熟练使用 HTML、CSS，了解现代前端框架</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-calculator"></i>
-                        <h3>数学</h3>
-                        <p>数学基础扎实，擅长算法设计和数学建模</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-git-alt"></i>
-                        <h3>版本控制</h3>
-                        <p>熟练使用 Git 进行代码管理和团队协作</p>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <h3>数据结构</h3>
-                        <p>掌握常见数据结构和算法，能够优化程序性能</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GitHub贡献 -->
-            <div class="section">
-                <h2><i class="fab fa-github"></i> GitHub 贡献</h2>
-                <div class="github-stats">
-                    <div class="stat-item">
-                        <h3>开源项目</h3>
-                        <p>积极参与开源项目，贡献代码和文档</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>个人项目</h3>
-                        <p>维护多个个人项目，涵盖 Web 开发和算法实现</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>学习记录</h3>
-                        <p>记录学习过程，分享编程心得和技术总结</p>
-                    </div>
-                </div>
-                <div class="github-link">
-                    <a href="https://github.com/Yaten-Z" target="_blank">
-                        <i class="fab fa-github"></i>
-                        访问我的 GitHub
-                    </a>
-                </div>
-            </div>
-
-
+        <!-- GitHub贡献 -->
+        <!-- GitHub贡献 -->
+        <div class="section">
+          <h2><i class="fab fa-github"></i> GitHub 贡献</h2>
+          <img
+            id="githubCard"
+            src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Yaten-Z"
+            width="100%"
+            alt="GitHub Summary"
+          />
+          <div class="github-link">
+            <a href="https://github.com/Yaten-Z" target="_blank">
+              <i class="fab fa-github"></i>
+              访问我的 GitHub
+            </a>
+          </div>
         </div>
+      </div>
     </div>
 
     <footer>
-        &copy; 2025 Yaten-Z. All rights reserved.
-        <br />
-        <a href="./copyright.html">Copyright</a> - Yaten-Z
+      &copy; 2025 Yaten-Z. All rights reserved.
+      <br />
+      <a href="./copyright.html">Copyright</a> - Yaten-Z
     </footer>
-</body>
+
+    <script src="js/theme.js"></script>
+    <script src="js/skills-progress.js"></script>
+  </body>
 </html>

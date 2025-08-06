@@ -1,6 +1,9 @@
-/* about.css - 专门为关于页面设计的样式 */
+/* copyright.css - 专门为版权页面设计的样式 */
 
-/* 主题变量扩展 */
+/* 继承 base.css 的基础样式 */
+@import url('./base.css');
+
+/* 使用 about.css 的主题变量 */
 :root {
     --section-bg: rgba(0, 0, 0, 0.25);
     --section-border: rgba(255, 255, 255, 0.15);
@@ -62,21 +65,6 @@ body {
     transform: none;
 }
 
-/* 头部区域 */
-.header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.header .avatar {
-    border: 3px solid var(--skill-item-border);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="light"] .header .avatar {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
 /* 内容区域 */
 .content {
     max-width: 900px;
@@ -123,168 +111,83 @@ body {
     transition: var(--theme-transition);
 }
 
-/* 技能网格布局 */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+/* 要求列表样式 */
+.requirements {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
 }
 
-.skill-item {
-    background: var(--skill-item-bg);
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    border: 1px solid var(--skill-item-border);
-    transition: var(--theme-transition);
-}
-
-.skill-item:hover {
-    background: var(--skill-item-bg);
-    transform: translateY(-3px);
-    opacity: 0.8;
-}
-
-.skill-item i {
-    font-size: 2.5rem;
-    color: var(--link-color);
-    margin-bottom: 1rem;
-    transition: var(--theme-transition);
-}
-
-.skill-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-color);
-    transition: var(--theme-transition);
-}
-
-.skill-item p {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    text-align: center;
-    color: var(--text-color);
-    transition: var(--theme-transition);
-    margin-bottom: 1rem;
-}
-
-/* 技能进度条样式 */
-.skill-progress {
-    margin-top: 1rem;
+.requirements li {
     display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 8px;
-    background: var(--skill-item-border);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--link-color), #4fc3f7);
-    border-radius: 4px;
-    width: 0%;
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.progress-text {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--link-color);
-    min-width: 40px;
-    text-align: right;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
     transition: var(--theme-transition);
 }
 
-/* GitHub 统计样式 */
-.github-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+.requirements li i {
+    color: #4caf50;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
 }
 
-.stat-item {
+/* 示例区域样式 */
+.example {
     background: var(--skill-item-bg);
     border-radius: 12px;
     padding: 1.5rem;
-    text-align: center;
+    margin: 1rem 0;
     border: 1px solid var(--skill-item-border);
     transition: var(--theme-transition);
 }
 
-.stat-item h3 {
-    font-size: 1.2rem;
-    color: var(--link-color);
-    margin-bottom: 0.8rem;
-    transition: var(--theme-transition);
-}
-
-.stat-item p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    text-align: center;
+.example p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
     color: var(--text-color);
+}
+
+.example a {
+    color: var(--link-color);
+    text-decoration: none;
     transition: var(--theme-transition);
 }
 
-/* GitHub 链接 */
-.github-link {
-    text-align: center;
+.example a:hover {
+    text-decoration: underline;
 }
 
-.github-link a {
+/* 联系方式样式 */
+.contact-info {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.contact-link {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.5rem;
     color: var(--link-color);
     text-decoration: none;
-    font-size: 1.2rem;
     background: var(--skill-item-bg);
-    padding: 12px 24px;
-    border-radius: 25px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
     border: 1px solid var(--skill-item-border);
     transition: var(--theme-transition);
+    font-size: 0.95rem;
 }
 
-.github-link a:hover {
+.contact-link:hover {
     transform: translateY(-2px);
     text-decoration: none;
-    opacity: 0.8;
+    border-color: var(--link-color);
+    background: var(--skill-item-bg);
 }
 
 /* 响应式设计 */
@@ -311,46 +214,40 @@ body {
         font-size: 1.5rem;
     }
     
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .contact-info {
+        flex-direction: column;
     }
     
-    .github-stats {
-        grid-template-columns: 1fr;
+    .contact-link {
+        display: flex;
+        margin: 0.5rem 0;
     }
 }
 
 @media (max-width: 480px) {
-    .header h1 {
-        font-size: 2rem;
-    }
-    
     .section {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
     }
     
-    .skill-item {
-        padding: 1.2rem;
+    .section h2 {
+        font-size: 1.3rem;
     }
     
-    .skill-item i {
-        font-size: 2rem;
+    .requirements li {
+        font-size: 0.9rem;
     }
     
-    .skill-progress {
-        gap: 8px;
+    .example {
+        padding: 1rem;
     }
     
-    .progress-bar {
-        height: 6px;
+    .example p {
+        font-size: 0.9rem;
     }
     
-    .progress-text {
-        font-size: 0.8rem;
-        min-width: 35px;
+    .contact-link {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
     }
 }
-
-
