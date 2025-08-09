@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/comment.css" />
+    <title>留言板 - Yaten-Z</title>
+  </head>
+  <body>
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle">
+      <button id="themeToggle" aria-label="切换主题">
+        <i class="fas fa-sun"></i>
+      </button>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav">
+      <a href="./index.html">
+        <i class="fas fa-arrow-left"></i>
+        返回首页
+      </a>
+    </div>
+
+    <div class="container">
+      <!-- 头部区域 -->
+      <div class="header">
+        <img
+          class="avatar"
+          src="https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg"
+          alt="头像"
+        />
+        <h1>留言板</h1>
+        <p class="intro">在这里留下你的足迹和想法</p>
+        <p>欢迎分享你的想法、建议或者只是简单的问候</p>
+      </div>
+
+      <!-- 内容区域 -->
+      <div class="content">
+        <!-- 留言提示 -->
+        <div class="section">
+          <h2><i class="fas fa-comments"></i> 留言须知</h2>
+          <div class="comment-tips">
+            <div class="tip-item">
+              <i class="fas fa-heart"></i>
+              <p>欢迎留下你的想法、建议或者技术交流</p>
+            </div>
+            <div class="tip-item">
+              <i class="fas fa-smile"></i>
+              <p>友善交流，让这里成为温暖的小角落</p>
+            </div>
+            <div class="tip-item">
+              <i class="fas fa-code"></i>
+              <p>支持 Markdown 语法，代码高亮显示</p>
+            </div>
+            <div class="tip-item">
+              <i class="fas fa-bell"></i>
+              <p>留言后会收到邮件回复通知</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giscus 评论区域 -->
+        <div class="section">
+          <h2><i class="fas fa-edit"></i> 写下你的留言</h2>
+          <div id="giscus-container" class="comment-container">
+            <script
+              src="https://giscus.app/client.js"
+              data-repo="Yaten-Z/blog-giscus"
+              data-repo-id="R_kgDOOzg2eg"
+              data-category="Announcements"
+              data-category-id="DIC_kwDOOzg2es4Cq1Mo"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="noborder_light"
+              data-lang="zh-CN"
+              data-loading="lazy"
+              crossorigin="anonymous"
+              async
+            >
+        
+        </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Yaten-Z. All rights reserved.
+      <br />
+      <a href="./copyright.html">Copyright</a> - Yaten-Z
+    </footer>
+
+    <!-- Giscus 相关脚本 -->
+    <script src="js/theme.js"></script>
+  </body>
+</html>
