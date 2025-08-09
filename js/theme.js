@@ -52,6 +52,29 @@ class ThemeManager {
         
         // 保存主题到localStorage
         localStorage.setItem('theme', theme);
+        
+        // 通知其他组件主题已更改
+        this.notifyThemeChange(theme);
+    }
+    
+    // 通知主题更改（用于 Giscus 等组件）
+    notifyThemeChange(theme) {
+        console.log(`Theme changed to: ${theme}`);
+        
+        // 触发自定义事件
+        const event = new CustomEvent('themeChanged', {
+            detail: { theme }
+        });
+        document.dispatchEvent(event);
+        
+        // 延迟触发 storage 事件（用于跨标签页同步）
+        setTimeout(() => {
+            window.dispatchEvent(new StorageEvent('storage', {
+                key: 'theme',
+                newValue: theme,
+                storageArea: localStorage
+            }));
+        }, 100);
     }
     
     // 切换主题
@@ -79,6 +102,11 @@ class ThemeManager {
                 }
             }
         });
+    }
+    
+    // 获取当前主题
+    getCurrentTheme() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
     }
 }
 

@@ -13,6 +13,9 @@
     --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     --link-color: #aad7ff;
     --footer-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --tooltip-bg: rgba(0, 0, 0, 0.8);
+    --tooltip-text: #ffffff;
+    --tooltip-border: rgba(255, 255, 255, 0.2);
     
     /* 过渡动画 */
     --theme-transition: all 0.3s ease;
@@ -25,6 +28,9 @@
     --text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
     --link-color: #3498db;
     --footer-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    --tooltip-bg: rgba(255, 255, 255, 0.95);
+    --tooltip-text: #2c3e50;
+    --tooltip-border: rgba(0, 0, 0, 0.1);
 }
 
 /* 设置html和body的基础样式 */
@@ -132,10 +138,109 @@ p {
 /* 链接容器样式 */
 .links {
     margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* 链接样式 */
-.links a {
+/* 链接项样式 */
+.link-item {
+    position: relative;
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 2rem;
+    transition: var(--theme-transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .link-item {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 链接鼠标悬停效果 */
+.link-item:hover {
+    text-decoration: none;
+    transform: translateY(-5px) scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--link-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .link-item:hover {
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip 样式 */
+.link-item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--tooltip-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+[data-theme="light"] .link-item::before {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip 箭头 */
+.link-item::after {
+    content: '';
+    position: absolute;
+    bottom: -37px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid var(--tooltip-bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+/* 显示 Tooltip */
+.link-item:hover::before,
+.link-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.link-item:hover::after {
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* 兼容旧版链接样式 */
+.links a:not(.link-item) {
     text-decoration: none;
     color: var(--link-color);
     margin: 0 15px;
@@ -143,8 +248,7 @@ p {
     transition: var(--theme-transition);
 }
 
-/* 链接鼠标悬停效果 */
-.links a:hover {
+.links a:not(.link-item):hover {
     text-decoration: underline;
     transform: scale(1.1);
 }
@@ -190,8 +294,50 @@ footer a:hover {
         font-size: 2rem;
     }
     
-    .links a {
+    .links {
+        gap: 12px;
+    }
+    
+    .link-item {
+        width: 50px;
+        height: 50px;
         font-size: 1.8rem;
-        margin: 0 10px;
+    }
+    
+    /* 移动端 Tooltip 位置调整 */
+    .link-item::before {
+        bottom: -40px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+    
+    .link-item::after {
+        bottom: -32px;
+        border-bottom-width: 6px;
+        border-left-width: 5px;
+        border-right-width: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .links {
+        gap: 10px;
+    }
+    
+    .link-item {
+        width: 45px;
+        height: 45px;
+        font-size: 1.6rem;
+    }
+    
+    /* 小屏幕上简化 Tooltip */
+    .link-item::before {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+        bottom: -38px;
+    }
+    
+    .link-item::after {
+        bottom: -30px;
     }
 }
