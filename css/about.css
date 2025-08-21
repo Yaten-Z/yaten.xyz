@@ -203,12 +203,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
     animation: shimmer 2s infinite;
 }
 
@@ -216,6 +214,7 @@ body {
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -293,29 +292,29 @@ body {
         top: 10px;
         left: 10px;
     }
-    
+
     .nav a {
         font-size: 1rem;
         padding: 8px 16px;
     }
-    
+
     .container {
         padding: 70px 15px 80px;
     }
-    
+
     .section {
         padding: 2rem;
     }
-    
+
     .section h2 {
         font-size: 1.5rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .github-stats {
         grid-template-columns: 1fr;
     }
@@ -325,28 +324,28 @@ body {
     .header h1 {
         font-size: 2rem;
     }
-    
+
     .section {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .skill-item {
         padding: 1.2rem;
     }
-    
+
     .skill-item i {
         font-size: 2rem;
     }
-    
+
     .skill-progress {
         gap: 8px;
     }
-    
+
     .progress-bar {
         height: 6px;
     }
-    
+
     .progress-text {
         font-size: 0.8rem;
         min-width: 35px;
@@ -354,3 +353,84 @@ body {
 }
 
 
+/* 自我介绍特定样式 */
+.intro-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.intro-content p {
+    margin-bottom: 1.2rem;
+    transition: var(--theme-transition);
+}
+
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: var(--link-color);
+    font-weight: 500;
+    transition: var(--theme-transition);
+}
+
+.quote {
+    font-style: italic;
+    position: relative;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--link-color);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: var(--theme-transition);
+}
+
+[data-theme="light"] .quote {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--link-color);
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.quote p {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 1.05rem;
+}
+
+.journey-timeline {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+}
+
+.journey-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    transition: var(--theme-transition);
+}
+
+.journey-item::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--link-color);
+    font-size: 0.9rem;
+    transition: var(--theme-transition);
+}
+
+.journey-item:hover::before {
+    transform: translateX(3px);
+}

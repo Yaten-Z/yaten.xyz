@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>句子轮播 - Yaten-Z</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 主题变量 */
+        :root {
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8b8;
+            --accent-color: #4fc3f7;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-light: rgba(255, 255, 255, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --accent-color: #3498db;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --shadow-light: rgba(255, 255, 255, 0.8);
+            --shadow-dark: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* 背景动画 */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--bg-primary);
+        }
+
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+            animation: gradientShift 10s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .theme-toggle button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px var(--shadow-dark);
+            border: 1px solid var(--glass-border);
+        }
+
+        .theme-toggle button:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        /* 返回按钮 */
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .back-button a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .back-button a:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        /* 主容器 */
+        .main-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* 头像区域 */
+        .avatar-section {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--glass-border);
+            box-shadow: 0 20px 60px var(--shadow-dark);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 70px var(--shadow-dark);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 标题区域 */
+        .title-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px var(--shadow-dark);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* 句子轮播区域 */
+        .carousel-container {
+            width: 100%;
+            max-width: 800px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .sentence-display {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 60px var(--shadow-dark);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .sentence-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .sentence-text {
+            font-size: 1.8rem;
+            text-align: center;
+            line-height: 1.6;
+            font-weight: 300;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 打字机光标 */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.8rem;
+            background: var(--accent-color);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* 控制按钮 */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .control-btn {
+            padding: 12px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px var(--shadow-dark);
+            background: var(--accent-color);
+            color: var(--bg-primary);
+        }
+
+        .control-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 进度指示器 */
+        .progress-indicator {
+            display: flex;
+            gap: 8px;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--glass-border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: var(--accent-color);
+            transform: scale(1.2);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* 句子切换动画 */
+        .sentence-text.fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        .sentence-text.fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .theme-toggle, .back-button {
+                top: 20px;
+            }
+
+            .theme-toggle {
+                right: 20px;
+            }
+
+            .back-button {
+                left: 20px;
+            }
+
+            .back-button a {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .sentence-display {
+                padding: 1.5rem 2rem;
+                min-height: 100px;
+            }
+
+            .sentence-text {
+                font-size: 1.4rem;
+            }
+
+            .cursor {
+                height: 1.4rem;
+            }
+
+            .controls {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .control-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .sentence-display {
+                padding: 1rem 1.5rem;
+                min-height: 80px;
+            }
+
+            .sentence-text {
+                font-size: 1.2rem;
+            }
+
+            .cursor {
+                height: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="切换主题">
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- 返回按钮 -->
+    <div class="back-button">
+        <a href="./index.html">
+            <i class="fas fa-arrow-left"></i>
+            返回首页
+        </a>
+    </div>
+
+    <div class="main-container">
+        <!-- 头像区域 -->
+        <div class="avatar-section">
+            <img class="avatar" src="https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg" alt="头像">
+        </div>
+
+        <!-- 标题区域 -->
+        <div class="title-section">
+            <h1 class="main-title">Yaten-Z</h1>
+            <p class="subtitle">代码诗人 · 算法追梦者</p>
+        </div>
+
+        <!-- 句子轮播区域 -->
+        <div class="carousel-container">
+            <div class="sentence-display">
+                <div class="sentence-text" id="sentenceText">
+                    <!-- 句子将通过JS动态插入 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button class="control-btn" id="prevBtn">
+                <i class="fas fa-chevron-left"></i> 上一句
+            </button>
+            <button class="control-btn" id="pauseBtn">
+                <i class="fas fa-pause"></i> 暂停
+            </button>
+            <button class="control-btn" id="nextBtn">
+                下一句 <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- 进度指示器 -->
+        <div class="progress-indicator" id="progressIndicator">
+            <!-- 进度点将通过JS动态生成 -->
+        </div>
+    </div>
+
+    <script>
+        class SentenceCarousel {
+            constructor() {
+                // 句子数据
+                this.sentences = [
+                    "等那场风，等那个你",
+                    "代码如诗，算法如画",
+                    "在0与1的世界里寻找无限可能",
+                    "每一行代码都是对未来的投资",
+                    "用逻辑思维编织梦想的蓝图",
+                    "在bug中成长，在调试中领悟",
+                    "算法竞赛是思维的马拉松",
+                    "代码是另一种语言的诗歌",
+                    "在终端里敲响青春的键盘声",
+                    "让程序成为改变世界的力量",
+                    "每个函数都承载着一份初心",
+                    "在递归中找到人生的真谛"
+                ];
+
+                this.currentIndex = 0;
+                this.isTyping = false;
+                this.isPaused = false;
+                this.typewriterSpeed = 80;
+                this.pauseDuration = 3000;
+                
+                this.sentenceElement = document.getElementById('sentenceText');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.pauseBtn = document.getElementById('pauseBtn');
+                this.progressIndicator = document.getElementById('progressIndicator');
+
+                this.init();
+            }
+
+            init() {
+                this.createProgressDots();
+                this.bindEvents();
+                this.startCarousel();
+                this.initTheme();
+            }
+
+            // 创建进度指示点
+            createProgressDots() {
+                this.progressIndicator.innerHTML = '';
+                this.sentences.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'progress-dot';
+                    dot.addEventListener('click', () => this.goToSentence(index));
+                    this.progressIndicator.appendChild(dot);
+                });
+                this.updateProgressDots();
+            }
+
+            // 更新进度指示点
+            updateProgressDots() {
+                const dots = this.progressIndicator.querySelectorAll('.progress-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            // 打字机效果
+            async typeWriter(text) {
+                this.isTyping = true;
+                this.sentenceElement.innerHTML = '';
+                
+                for (let i = 0; i < text.length; i++) {
+                    if (this.isPaused) return;
+                    
+                    this.sentenceElement.innerHTML = text.slice(0, i + 1) + '<span class="cursor"></span>';
+                    await this.delay(this.typewriterSpeed + Math.random() * 50);
+                }
+
+                // 保持光标闪烁一会儿
+                await this.delay(this.pauseDuration);
+                this.isTyping = false;
+            }
+
+            // 延迟函数
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            // 显示句子
+            async showSentence(index) {
+                if (this.isTyping) return;
+                
+                const sentence = this.sentences[index];
+                this.updateProgressDots();
+                
+                // 添加淡出效果
+                this.sentenceElement.classList.add('fade-out');
+                await this.delay(250);
+                
+                // 清空并开始打字
+                this.sentenceElement.classList.remove('fade-out');
+                this.sentenceElement.classList.add('fade-in');
+                
+                await this.typeWriter(sentence);
+                
+                this.sentenceElement.classList.remove('fade-in');
+            }
+
+            // 下一句
+            async nextSentence() {
+                if (this.isTyping) return;
+                this.currentIndex = (this.currentIndex + 1) % this.sentences.length;
+                await this.showSentence(this.currentIndex);
+            }
+
+            // 上一句
+            async prevSentence() {
+                if (this.isTyping) return;
+                this.currentIndex = (this.currentIndex - 1 + this.sentences.length) % this.sentences.length;
+                await this.showSentence(this.currentIndex);
+            }
+
+            // 跳转到指定句子
+            async goToSentence(index) {
+                if (this.isTyping || index === this.currentIndex) return;
+                this.currentIndex = index;
+                await this.showSentence(this.currentIndex);
+            }
+
+            // 暂停/继续
+            togglePause() {
+                this.isPaused = !this.isPaused;
+                const icon = this.pauseBtn.querySelector('i');
+                const text = this.pauseBtn.childNodes[1];
+                
+                if (this.isPaused) {
+                    icon.className = 'fas fa-play';
+                    text.textContent = ' 继续';
+                    this.stopAutoPlay();
+                } else {
+                    icon.className = 'fas fa-pause';
+                    text.textContent = ' 暂停';
+                    this.startAutoPlay();
+                }
+            }
+
+            // 开始自动播放
+            startAutoPlay() {
+                if (this.autoPlayTimer) clearInterval(this.autoPlayTimer);
+                this.autoPlayTimer = setInterval(() => {
+                    if (!this.isPaused) {
+                        this.nextSentence();
+                    }
+                }, 6000); // 每6秒切换一次
+            }
+
+            // 停止自动播放
+            stopAutoPlay() {
+                if (this.autoPlayTimer) {
+                    clearInterval(this.autoPlayTimer);
+                    this.autoPlayTimer = null;
+                }
+            }
+
+            // 开始轮播
+            startCarousel() {
+                this.showSentence(this.currentIndex);
+                this.startAutoPlay();
+            }
+
+            // 绑定事件
+            bindEvents() {
+                this.nextBtn.addEventListener('click', () => this.nextSentence());
+                this.prevBtn.addEventListener('click', () => this.prevSentence());
+                this.pauseBtn.addEventListener('click', () => this.togglePause());
+
+                // 键盘控制
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            this.prevSentence();
+                            break;
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            this.nextSentence();
+                            break;
+                        case ' ':
+                            e.preventDefault();
+                            this.togglePause();
+                            break;
+                    }
+                });
+
+                // 鼠标悬停暂停自动播放
+                document.querySelector('.sentence-display').addEventListener('mouseenter', () => {
+                    this.stopAutoPlay();
+                });
+
+                document.querySelector('.sentence-display').addEventListener('mouseleave', () => {
+                    if (!this.isPaused) {
+                        this.startAutoPlay();
+                    }
+                });
+            }
+
+            // 主题切换
+            initTheme() {
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = themeToggle.querySelector('i');
+                
+                // 从localStorage获取主题
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                this.setTheme(savedTheme);
+
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    this.setTheme(newTheme);
+                });
+            }
+
+            setTheme(theme) {
+                const html = document.documentElement;
+                const themeIcon = document.querySelector('#themeToggle i');
+                
+                if (theme === 'light') {
+                    html.setAttribute('data-theme', 'light');
+                    themeIcon.className = 'fas fa-moon';
+                } else {
+                    html.removeAttribute('data-theme');
+                    themeIcon.className = 'fas fa-sun';
+                }
+                
+                localStorage.setItem('theme', theme);
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            new SentenceCarousel();
+        });
+    </script>
+</body>
+</html>
