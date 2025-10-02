@@ -37,7 +37,6 @@ body {
     transition: var(--theme-transition);
 }
 
-/* 主题切换按钮 */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -66,7 +65,6 @@ body {
     transform: scale(1.1);
 }
 
-/* 导航栏 */
 .nav {
     position: fixed;
     top: 20px;
@@ -94,14 +92,12 @@ body {
     opacity: 0.8;
 }
 
-/* 容器 */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 20px 80px;
 }
 
-/* 头部 */
 .header {
     text-align: center;
     margin-bottom: 3rem;
@@ -118,7 +114,6 @@ body {
     opacity: 0.9;
 }
 
-/* 区块样式 */
 .section {
     background: var(--section-bg);
     backdrop-filter: blur(15px);
@@ -143,7 +138,6 @@ body {
     gap: 12px;
 }
 
-/* 服务网格 */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,7 +189,6 @@ body {
     margin-top: 1rem;
 }
 
-/* 项目展示 */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -206,9 +199,12 @@ body {
 .project-card {
     background: var(--card-bg);
     border-radius: 15px;
-    padding: 1.5rem;
+    overflow: hidden;
     border: 1px solid var(--card-border);
     transition: var(--theme-transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -216,10 +212,43 @@ body {
     border-color: var(--link-color);
 }
 
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: var(--card-border);
+    display: block;
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .project-card h3 {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--link-color);
+}
+
+.project-card .project-link {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.project-card .project-link a {
+    color: var(--link-color);
+    text-decoration: none;
+    word-break: break-all;
+    opacity: 0.8;
+}
+
+.project-card .project-link a:hover {
+    text-decoration: underline;
+    opacity: 1;
 }
 
 .project-card p {
@@ -227,13 +256,14 @@ body {
     line-height: 1.6;
     opacity: 0.9;
     margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 1rem;
+    margin-top: auto;
 }
 
 .tag {
@@ -245,10 +275,9 @@ body {
     font-weight: 500;
 }
 
-/* 联系方式 */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -288,10 +317,9 @@ body {
     text-decoration: underline;
 }
 
-/* 流程步骤 */
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -331,7 +359,6 @@ body {
     line-height: 1.5;
 }
 
-/* 价格表 */
 .price-note {
     background: var(--card-bg);
     border-left: 4px solid var(--link-color);
@@ -346,7 +373,6 @@ body {
     opacity: 0.9;
 }
 
-/* 页脚 */
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -363,7 +389,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* 响应式 */
 @media (max-width: 768px) {
     .nav {
         top: 10px;
