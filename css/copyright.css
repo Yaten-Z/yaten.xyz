@@ -1,0 +1,319 @@
+/* copyright.css - 版权信息页面样式 */
+
+/* 主题变量扩展 */
+:root {
+    --copyright-box-bg: rgba(0, 0, 0, 0.3);
+    --copyright-box-border: rgba(255, 255, 255, 0.15);
+    --copyright-item-bg: rgba(255, 255, 255, 0.05);
+    --copyright-item-border: rgba(255, 255, 255, 0.1);
+    --copyright-header-bg: rgba(170, 215, 255, 0.1);
+    --nav-bg: rgba(0, 0, 0, 0.4);
+    --nav-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --copyright-box-bg: rgba(255, 255, 255, 0.85);
+    --copyright-box-border: rgba(0, 0, 0, 0.1);
+    --copyright-item-bg: rgba(0, 0, 0, 0.03);
+    --copyright-item-border: rgba(0, 0, 0, 0.08);
+    --copyright-header-bg: rgba(52, 152, 219, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --nav-border: rgba(0, 0, 0, 0.1);
+}
+
+/* 重置 body 高度 */
+body {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* 导航栏样式 */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--nav-bg);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: var(--theme-transition);
+    border: 1px solid var(--nav-border);
+}
+
+.nav a:hover {
+    transform: translateX(5px);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* 容器样式调整 */
+.container {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 20px 80px;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 版权信息主框 */
+.copyright-box {
+    background: var(--copyright-box-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 3rem;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid var(--copyright-box-border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: var(--theme-transition);
+}
+
+[data-theme="light"] .copyright-box {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.copyright-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .copyright-box:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* 头部样式 */
+.copyright-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--copyright-header-bg);
+    border-radius: 15px;
+    border: 1px solid var(--copyright-item-border);
+}
+
+.copyright-header i {
+    font-size: 3rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+    display: block;
+    transition: var(--theme-transition);
+}
+
+.copyright-header h1 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin: 0;
+    transition: var(--theme-transition);
+}
+
+/* 内容区域 */
+.copyright-content {
+    margin-bottom: 2rem;
+}
+
+/* 版权条目样式 */
+.copyright-item {
+    background: var(--copyright-item-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--copyright-item-border);
+    transition: var(--theme-transition);
+}
+
+.copyright-item:hover {
+    transform: translateX(10px);
+    background: rgba(170, 215, 255, 0.08);
+    border-color: var(--link-color);
+}
+
+[data-theme="light"] .copyright-item:hover {
+    background: rgba(52, 152, 219, 0.08);
+}
+
+.copyright-item h3 {
+    font-size: 1.3rem;
+    color: var(--link-color);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--theme-transition);
+}
+
+.copyright-item h3 i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.copyright-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.9;
+    transition: var(--theme-transition);
+}
+
+.copyright-item strong {
+    color: var(--link-color);
+    font-weight: 600;
+}
+
+.copyright-item a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: var(--theme-transition);
+    font-weight: 500;
+}
+
+.copyright-item a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* 底部样式 */
+.copyright-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--copyright-item-bg);
+    border-radius: 15px;
+    border: 1px solid var(--copyright-item-border);
+}
+
+.copyright-footer p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--theme-transition);
+}
+
+.copyright-footer i {
+    color: #ff6b6b;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* 心跳动画 */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .nav a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .container {
+        padding: 80px 15px 60px;
+    }
+    
+    .copyright-box {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    .copyright-header {
+        padding: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .copyright-header i {
+        font-size: 2.5rem;
+    }
+    
+    .copyright-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .copyright-item {
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .copyright-item h3 {
+        font-size: 1.2rem;
+        gap: 8px;
+    }
+    
+    .copyright-item p {
+        font-size: 0.95rem;
+    }
+    
+    .copyright-footer {
+        padding: 1.2rem;
+    }
+    
+    .copyright-footer p {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .copyright-box {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+    
+    .copyright-header {
+        padding: 1rem;
+    }
+    
+    .copyright-header i {
+        font-size: 2rem;
+    }
+    
+    .copyright-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .copyright-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .copyright-item h3 {
+        font-size: 1.1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .copyright-item h3 i {
+        width: auto;
+    }
+    
+    .copyright-item:hover {
+        transform: translateX(5px);
+    }
+}

@@ -1,0 +1,343 @@
+/* 全局重置样式 - 清除所有元素的默认边距和内边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS变量定义 - 主题颜色 */
+:root {
+    /* 深色主题（默认） */
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    --link-color: #aad7ff;
+    --footer-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    --tooltip-bg: rgba(0, 0, 0, 0.8);
+    --tooltip-text: #ffffff;
+    --tooltip-border: rgba(255, 255, 255, 0.2);
+    
+    /* 过渡动画 */
+    --theme-transition: all 0.3s ease;
+}
+
+/* 浅色主题 */
+[data-theme="light"] {
+    --bg-color: #f5f7fa;
+    --text-color: #2c3e50;
+    --text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    --link-color: #3498db;
+    --footer-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    --tooltip-bg: rgba(255, 255, 255, 0.95);
+    --tooltip-text: #2c3e50;
+    --tooltip-border: rgba(0, 0, 0, 0.1);
+}
+
+/* 设置html和body的基础样式 */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", sans-serif;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--link-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: var(--theme-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .theme-toggle button {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle button:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .theme-toggle button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 主容器样式 - 用于页面内容的布局 */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color);
+    text-shadow: var(--text-shadow);
+    transform: translateY(-10%);
+    transition: var(--theme-transition);
+}
+
+/* 头像样式 */
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: var(--theme-transition);
+}
+
+/* 主标题样式 */
+h1 {
+    font-size: 2.5rem;
+    transition: var(--theme-transition);
+}
+
+/* 段落文字样式 */
+p {
+    font-size: 1.2rem;
+    transition: var(--theme-transition);
+}
+
+/* 个人介绍样式 - 诗意的介绍文字 */
+.intro {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0.5rem 0 1.5rem 0;
+    opacity: 0.9;
+    font-weight: 300;
+    transition: var(--theme-transition);
+}
+
+/* 链接容器样式 */
+.links {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* 链接项样式 */
+.link-item {
+    position: relative;
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 2rem;
+    transition: var(--theme-transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .link-item {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 链接鼠标悬停效果 */
+.link-item:hover {
+    text-decoration: none;
+    transform: translateY(-5px) scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--link-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .link-item:hover {
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip 样式 */
+.link-item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--tooltip-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+[data-theme="light"] .link-item::before {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip 箭头 */
+.link-item::after {
+    content: '';
+    position: absolute;
+    bottom: -37px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid var(--tooltip-bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+/* 显示 Tooltip */
+.link-item:hover::before,
+.link-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.link-item:hover::after {
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* 兼容旧版链接样式 */
+.links a:not(.link-item) {
+    text-decoration: none;
+    color: var(--link-color);
+    margin: 0 15px;
+    font-size: 2rem;
+    transition: var(--theme-transition);
+}
+
+.links a:not(.link-item):hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* 页脚样式 - 放在页面最底部，不固定定位 */
+footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-shadow: var(--footer-text-shadow);
+    transition: var(--theme-transition);
+}
+
+/* 页脚链接样式 */
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: var(--theme-transition);
+}
+
+/* 页脚链接鼠标悬停效果 */
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .theme-toggle button {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .links {
+        gap: 12px;
+    }
+    
+    .link-item {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+    
+    /* 移动端 Tooltip 位置调整 */
+    .link-item::before {
+        bottom: -40px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+    
+    .link-item::after {
+        bottom: -32px;
+        border-bottom-width: 6px;
+        border-left-width: 5px;
+        border-right-width: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .links {
+        gap: 10px;
+    }
+    
+    .link-item {
+        width: 45px;
+        height: 45px;
+        font-size: 1.6rem;
+    }
+    
+    /* 小屏幕上简化 Tooltip */
+    .link-item::before {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+        bottom: -38px;
+    }
+    
+    .link-item::after {
+        bottom: -30px;
+    }
+}

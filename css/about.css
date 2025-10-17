@@ -1,0 +1,436 @@
+/* about.css - 专门为关于页面设计的样式 */
+
+/* 主题变量扩展 */
+:root {
+    --section-bg: rgba(0, 0, 0, 0.25);
+    --section-border: rgba(255, 255, 255, 0.15);
+    --skill-item-bg: rgba(255, 255, 255, 0.05);
+    --skill-item-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(0, 0, 0, 0.4);
+    --nav-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --section-bg: rgba(255, 255, 255, 0.8);
+    --section-border: rgba(0, 0, 0, 0.1);
+    --skill-item-bg: rgba(0, 0, 0, 0.05);
+    --skill-item-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --nav-border: rgba(0, 0, 0, 0.1);
+}
+
+/* 重置 body 高度，允许滚动 */
+body {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* 导航栏样式 */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--nav-bg);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: var(--theme-transition);
+    border: 1px solid var(--nav-border);
+}
+
+.nav a:hover {
+    transform: translateX(5px);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* 重写容器样式以适应更多内容 */
+.container {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 100px;
+    transform: none;
+}
+
+/* 头部区域 */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header .avatar {
+    border: 3px solid var(--skill-item-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .header .avatar {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 内容区域 */
+.content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 内容块样式 */
+.section {
+    background: var(--section-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--section-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: var(--theme-transition);
+}
+
+[data-theme="light"] .section {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--link-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--theme-transition);
+}
+
+.section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    text-align: left;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+
+/* 技能网格布局 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.skill-item {
+    background: var(--skill-item-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--skill-item-border);
+    transition: var(--theme-transition);
+}
+
+.skill-item:hover {
+    background: var(--skill-item-bg);
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+    transition: var(--theme-transition);
+}
+
+.skill-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+
+.skill-item p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    text-align: center;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+    margin-bottom: 1rem;
+}
+
+/* 技能进度条样式 */
+.skill-progress {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--skill-item-border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--link-color), #4fc3f7);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--link-color);
+    min-width: 40px;
+    text-align: right;
+    transition: var(--theme-transition);
+}
+
+/* GitHub 统计样式 */
+.github-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    background: var(--skill-item-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--skill-item-border);
+    transition: var(--theme-transition);
+}
+
+.stat-item h3 {
+    font-size: 1.2rem;
+    color: var(--link-color);
+    margin-bottom: 0.8rem;
+    transition: var(--theme-transition);
+}
+
+.stat-item p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    text-align: center;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+
+/* GitHub 链接 */
+.github-link {
+    text-align: center;
+}
+
+.github-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: var(--skill-item-bg);
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 1px solid var(--skill-item-border);
+    transition: var(--theme-transition);
+}
+
+.github-link a:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav {
+        top: 10px;
+        left: 10px;
+    }
+
+    .nav a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .container {
+        padding: 70px 15px 80px;
+    }
+
+    .section {
+        padding: 2rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .github-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-item {
+        padding: 1.2rem;
+    }
+
+    .skill-item i {
+        font-size: 2rem;
+    }
+
+    .skill-progress {
+        gap: 8px;
+    }
+
+    .progress-bar {
+        height: 6px;
+    }
+
+    .progress-text {
+        font-size: 0.8rem;
+        min-width: 35px;
+    }
+}
+
+
+/* 自我介绍特定样式 */
+.intro-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.intro-content p {
+    margin-bottom: 1.2rem;
+    transition: var(--theme-transition);
+}
+
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: var(--link-color);
+    font-weight: 500;
+    transition: var(--theme-transition);
+}
+
+.quote {
+    font-style: italic;
+    position: relative;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--link-color);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: var(--theme-transition);
+}
+
+[data-theme="light"] .quote {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--link-color);
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.quote p {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 1.05rem;
+}
+
+.journey-timeline {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+}
+
+.journey-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    transition: var(--theme-transition);
+}
+
+.journey-item::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--link-color);
+    font-size: 0.9rem;
+    transition: var(--theme-transition);
+}
+
+.journey-item:hover::before {
+    transform: translateX(3px);
+}

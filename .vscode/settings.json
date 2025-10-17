@@ -1,0 +1,31 @@
+{
+    //规定clangd的位置
+    "clangd.path": "C:\\msys64\\ucrt64\\bin\\clangd.exe",
+    "clangd.arguments": [
+        //如果使用万能头文件，可以屏蔽掉插入头文件的操作
+        //"--header-insertion=never",
+    ],
+    //cph和浏览器插件联动的效果
+    // "cph.general.defaultLanguage": "cpp",
+    // "cph.language.cpp.SubmissionCompiler": "GNU G++14 6.4.0", // 使用 C++14 标准
+    // "cph.language.cpp.Args": "-std=c++14 -O2", // -O2
+
+    //这里规定了CodeRunner一键生成的命令
+    "code-runner.executorMap": {
+        //这里默认c++文件用c++14标准编译，不过可以自己选择是否加 -std=c++14，如果保持默认就用下面这句话
+        //"cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && clang++ -std=c++14 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "c": "cd $dir && clang $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "python": "python -u",
+    },
+    //这两行分别是指示代码和终端的字体大小
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
+    
+    "code-runner.runInTerminal": true, //是否在终端中运行，选择是
+    "editor.mouseWheelZoom": true, //是否可以让代码字体用CTRL+滚轮进行缩放，true就是可以
+    "terminal.integrated.mouseWheelZoom": false, //是否可以让终端字体用CTRL+滚轮进行缩放，true就是可以
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font", //重要！！请和你刚才设置的字体一致
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "git.ignoreLimitWarning": true, //选择默认哪个终端打开编译
+}

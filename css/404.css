@@ -1,0 +1,79 @@
+/* 404专用样式 */
+.container {
+    height: 100vh;
+    transform: translateY(-5%);
+}
+
+.error-number {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.error-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* 按钮主题变量 */
+:root {
+    --btn-bg: rgba(255, 255, 255, 0.05);
+    --btn-border: rgba(255, 255, 255, 0.1);
+    --btn-hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --btn-bg: rgba(0, 0, 0, 0.05);
+    --btn-border: rgba(0, 0, 0, 0.1);
+    --btn-hover-bg: rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--btn-bg);
+    color: var(--link-color);
+    text-decoration: none;
+    border-radius: 25px;
+    border: 1px solid var(--btn-border);
+    transition: var(--theme-transition);
+    margin: 0 10px;
+    backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    background: var(--btn-hover-bg);
+    border-color: var(--link-color);
+    box-shadow: 0 4px 15px rgba(170, 215, 255, 0.2);
+}
+
+[data-theme="light"] .btn:hover {
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+@media (max-width: 768px) {
+    .error-number {
+        font-size: 5rem;
+    }
+
+    .error-title {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        margin: 5px;
+        font-size: 0.9rem;
+    }
+}

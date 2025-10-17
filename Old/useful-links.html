@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实用链接收藏</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --background-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2b2d42;
+            --text-secondary: #6c757d;
+            --border-color: #e9ecef;
+            --hover-bg: #f1f8fe;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .link-box {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .link-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.12);
+        }
+        
+        .link-title {
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .link-title i {
+            margin-right: 12px;
+            font-size: 1.4em;
+            color: var(--accent-color);
+        }
+        
+        .link-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .link-list li {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .link-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .link-list a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .link-list a:hover {
+            background-color: var(--hover-bg);
+            color: var(--secondary-color);
+            transform: translateX(3px);
+        }
+        
+        .link-description {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 600px) {
+            .links-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>实用链接收藏</h1>
+        
+        <div class="links-container">
+            <!-- 第一个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-search"></i>搜索引擎</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.google.com" target="_blank">Google</a>
+                        <div class="link-description">全球最流行的搜索引擎</div>
+                    </li>
+                    <li>
+                        <a href="https://www.bing.com" target="_blank">Bing</a>
+                        <div class="link-description">微软提供的搜索引擎</div>
+                    </li>
+                    <li>
+                        <a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a>
+                        <div class="link-description">注重隐私的搜索引擎</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第二个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-newspaper"></i>新闻资讯</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.bbc.com" target="_blank">BBC News</a>
+                        <div class="link-description">英国广播公司国际新闻</div>
+                    </li>
+                    <li>
+                        <a href="https://www.reuters.com" target="_blank">Reuters</a>
+                        <div class="link-description">路透社全球新闻</div>
+                    </li>
+                    <li>
+                        <a href="https://www.theguardian.com" target="_blank">The Guardian</a>
+                        <div class="link-description">卫报国际版</div>
+                    </li>
+                    <li>
+                        <a href="http://www.people.com.cn/" target="_blank">People's Daily Online</a>
+                        <div class="link-description">人民日报</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第三个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-laptop"></i>技术开发</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <div class="link-description">代码托管和协作平台</div>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a>
+                        <div class="link-description">开发者问答社区</div>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a>
+                        <div class="link-description">权威Web开发文档</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第四个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-palette"></i>设计资源</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://dribbble.com" target="_blank">Dribbble</a>
+                        <div class="link-description">设计师作品展示平台</div>
+                    </li>
+                    <li>
+                        <a href="https://www.behance.net" target="_blank">Behance</a>
+                        <div class="link-description">创意设计作品集</div>
+                    </li>
+                    <li>
+                        <a href="https://colorhunt.co" target="_blank">Color Hunt</a>
+                        <div class="link-description">配色方案灵感</div>
+                    </li>
+                    <li>
+                        <a href="https://accounts.pixiv.net/" target="_blank">Pixiv</a>
+                        <div class="link-description">插画交流网站 [pixiv]</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第五个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-video"></i>视频媒体</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">YouTube</a>
+                        <div class="link-description">全球最大视频平台</div>
+                    </li>
+                    <li>
+                        <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+                        <div class="link-description">中国知名视频社区</div>
+                    </li>
+                    <li>
+                        <a href="https://www.netflix.com" target="_blank">Netflix</a>
+                        <div class="link-description">流媒体影视平台</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 第六个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-book"></i>学习资源</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.coursera.org" target="_blank">Coursera</a>
+                        <div class="link-description">大学在线课程平台</div>
+                    </li>
+                    <li>
+                        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+                        <div class="link-description">免费教育平台</div>
+                    </li>
+                    <li>
+                        <a href="https://www.edx.org" target="_blank">edX</a>
+                        <div class="link-description">哈佛和MIT创办的在线学习平台</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 第七个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-laptop-code"></i>OI学习</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://www.luogu.com.cn" target="_blank">洛谷</a>
+                        <div class="link-description">计算机科学教育新生态</div>
+                    </li>
+                    <li>
+                        <a href="https://oi-wiki.org" target="_blank">OI-Wiki</a>
+                        <div class="link-description">某大型游戏线上攻略，内含炫酷算术魔法</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 第八个链接盒子 -->
+            <div class="link-box">
+                <h2 class="link-title"><i class="fas fa-blog"></i>优质Blog</h2>
+                <ul class="link-list">
+                    <li>
+                        <a href="https://linmohan.fun/" target="_blank">技研录</a>
+                        <div class="link-description">「代码重构世界，逻辑解构真理」</div>
+                    </li>
+                    <li>
+                        <a href="https://blog.aqcoder.cn" target="_blank">枫叶</a>
+                        <div class="link-description">分享知识，认识世界</div>
+                    </li>
+                    <li>
+                        <a href="https://blog.yaten.xyz" target="_blank">落鲸</a>
+                        <div class="link-description">「用符号雕刻时间，用逻辑照亮未知」</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
