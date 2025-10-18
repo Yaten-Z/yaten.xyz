@@ -1,73 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="icon" href="https://s1.imagehub.cc/images/2025/08/10/db218f6882b872ebce720b7e53236bd5.png" size="32*32">
-    <title>Yaten-Z</title>
-  </head>
-  <body>
-    <!-- 主题切换按钮 -->
-    <div class="theme-toggle">
-      <button id="themeToggle" aria-label="切换主题">
-        <i class="fas fa-sun"></i>
-      </button>
-    </div>
-    
-    <div class="container">
-      <img
-        class="avatar"
-        src="https://s1.imagehub.cc/images/2025/07/30/93b3e11a33c2741a3e254bccabb47739.jpg"
-        alt="头像"
-      />
-      <h1>Yaten-Z</h1>
-      <p class="intro">等那场风，等那个你</p>
+    <title>Yaten - 个人主页</title>
 
-      <p>编程｜技术｜数学｜初三</p>
-      <div class="links">
-        <a href="https://github.com/Yaten-Z" target="_blank" class="link-item" data-tooltip="GitHub 主页">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:Yaten-Z@outlook.com" class="link-item" data-tooltip="邮箱联系">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://qm.qq.com/q/IyIRVq6vwQ" target="_blank" class="link-item" data-tooltip="QQ 联系">
-          <i class="fab fa-qq"></i>
-        </a>
-        <a href="https://www.zhihu.com/people/David-Sheep" target="_blank" class="link-item" data-tooltip="知乎主页">
-          <i class="fab fa-zhihu"></i>
-        </a>
-        <a href="https://blog.yaten.xyz" target="_blank" class="link-item" data-tooltip="个人博客">
-          <i class="fas fa-blog"></i>
-        </a>
-        <a href="https://taten.xyz" target="_blank" class="link-item" data-tooltip="TATEN 团队">
-          <i class="fas fa-user-group"></i>
-        </a>
-        <a href="./comment.html" target="_self" class="link-item" data-tooltip="留言板">
-          <i class="fas fa-comments"></i>
-        </a>
-        <a href="./pay.html" target="_self" class="link-item" data-tooltip="赞助支持">
-          <i class="fas fa-dollar-sign"></i>
-        </a>
-        <a href="https://blog.yaten.xyz/links" target="_self" class="link-item" data-tooltip="友情链接">
-          <i class="fas fa-link"></i>
-        </a>
-        <a href="./about.html" target="_self" class="link-item" data-tooltip="关于我">
-          <i class="far fa-address-card"></i>
-        </a>
-        </a>
-      </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-links">
+        <a href="https://blog.yaten.xyz">[Blog]</a>
+        <a href="https://blog.yaten.xyz/links/">[Friends]</a>
+        <a href="https://taten.xyz">[TATEN]</a>
+        <a href="#contact">[Follow Me]</a>
     </div>
+
+    <!-- 视频背景区 -->
+    <header class="header">
+        <video class="header-background" autoplay muted loop playsinline>
+            <source src="data/video/intro.mp4" type="video/mp4" />
+        </video>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="content">
+        <section id="about" class="section">
+            <h1>About Me</h1>
+            <p>你好，我是 <strong>Yaten-Z</strong>。</p>
+            <p>我相信代码与文学本质上是相通的——都是用结构化的语言来表达思想。前端开发让我能将想象转化为交互体验，而古典文学让我思考更深层的人文意义。在这两个世界之间穿行，我找到了自己真正的热情所在。</p>
+
+            <p><strong>技术方面</strong>，我正在广泛学习新知识，从 Python 到 C++，从 Html、CSS、JS 再到 Linux。我相信好的工程实践能让创意更高效地落地。我参与过匿名留言板、个人博客、团队网站等多个项目，每一个都是从零开始的思考与打磨。</p>
+
+            <p><strong>爱好方面</strong>，我热爱音乐 & 文案，这些爱好教会我观察世界的方式——发现模式、寻找对比、追求平衡——这些品质同样重要地贯穿在代码设计中。</p>
+
+            <p>我所在的 <strong>TATEN 团队</strong>
+                由一群热爱计算机的学生组成，我们相信「代码的浪漫」——每一个项目都是对技术与创意的尊重，都是用热度记录青春的方式。在这个团队里，我不仅学会了怎样编程，更学会了如何与他人协作、如何将想法变成现实。</p>
+
+            <p>我对新事物始终保持好奇心。奇奇怪怪的创意想法、未知的技术领域、有趣的协作机会——这些都能让我兴奋。如果你对代码、设计、或任何创意项目感兴趣，欢迎和我交流。</p>
+
+            <blockquote>不过是一句话找一句话，一个人想一个人。<br>但在这个过程中，我们似乎可以干些什么。</blockquote>
+        </section>
+
+        <section id="hobby" class="section">
+            <h1>Interests</h1>
+            <p>吃货、学习、Coding</p>
+            <div class="interest-image">
+                <a href="gallery-eat.html">
+                    <img src="https://s1.imagehub.cc/images/2025/10/18/84fb52b69188ce6dcb6226326786eb70.jpg" alt="吃货" />
+                </a>
+                <div class="image-title">吃货世界</div>
+            </div>
+            <div class="interest-image">
+                <a href="gallery-life.html">
+                    <img src="https://s1.imagehub.cc/images/2025/10/18/3f1d27a5772b3669df22affd6b438b9c.jpg" alt="吃货" />
+                </a>
+                <div class="image-title">日常生活</div>
+            </div>
+        </section>
+
+        <section id="team" class="section">
+            <h1>Team - TATEN</h1>
+            <p>我来自 <strong>TATEN 团队</strong> —— 一群热爱编程与创造的学生。</p>
+            <p>我们相信「代码的浪漫」，用项目记录青春的热度。</p>
+            <a href="https://taten.xyz">探索更多关于 TATEN</a>
+            <blockquote>TATEN <br>在网络的另一端，我们相遇；<br>在代码与梦想之间，我们并肩前行</blockquote>
+        </section>
+
+        <section id="project" class="section">
+            <h1>Projects</h1>
+            <ul>
+                <li><a href="https://blog.yaten.xyz">[My Blog]</a>： Hexo + Butterfly，记录思考与成长</li>
+                <li><a href="https://github.com/TATENcn/NeoPage">[NeoPage]</a>：轻量级个人主页模板</li>
+                <li><a href="https://taten.xyz">[TATEN]</a>：计算机科学交流团队</li>
+                <li><a href="https://guyang17.github.io">[GuYang17's Blog]</a>：搭建技术Blog</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section">
+            <h1>Contact</h1>
+            <div class="contact-box">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:Yaten-Z@outlook.com">Yaten-Z@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://yaten.xyz/comment.html" target="_blank">https://yaten.xyz/comment.html</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-qq"></i>
+                    <a href="https://qm.qq.com/q/IyIRVq6vwQ" target="_blank">2635802854</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Yaten-Z">Yaten-Z</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-      &copy; 2025 Yaten-Z. All rights reserved.
-      <br />
-      <a href = "./copyright.html">Copyright</a> - Yaten-Z
+        <p>Copyright © 2025 Yaten-Z. All rights reserved.</p>
     </footer>
+</body>
 
-    <script src="js/theme.js"></script>
-    <script src="js/device-detect.js"></script>
-  </body>
 </html>

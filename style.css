@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Cascadia Code', 'Courier New', Consolas, monospace;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+}
+.top-links {
+    width: 100%;
+    padding: 0.5rem 2rem;
+    text-align: right;
+    background: transparent;
+}
+.top-links a {
+    color: inherit; /* 使用与页面文字相同的颜色 */
+    text-decoration: none;
+    margin-left: 0.75rem;
+    border-bottom: 1px solid transparent;
+}
+.top-links a:hover {
+    border-bottom-color: #aaa;
+}
+.header {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* 确保视频超出部分裁剪，边缘锐利 */
+    padding: 0 2rem;
+    margin-bottom: -300px;
+}
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;  /* 限宽 */
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(1.3px); /* 轻微模糊 + 稍微亮一点 */
+    border-radius: 0; /* 保证四个角锐利 */
+    opacity: 0.5;
+}
+.content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 2rem 3rem 2rem;
+    background: transparent;
+    cursor: default;
+}
+.section {
+    margin-bottom: 1rem;
+    background: transparent;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+a {
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+a:hover {
+    border-bottom-color: #aaa;
+}
+blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #555;
+    font-style: normal;
+    background-color: #f9f9f9;
+}
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.book-card {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s ease;
+}
+.book-card:hover {
+    border-color: #999;
+}
+.book-cover {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.book-info {
+    flex: 1;
+}
+.book-title {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #222;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.book-author {
+    font-size: 1rem;
+    color: #666;
+}
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 两列 */
+    grid-gap: 20px;
+    max-width: 600px; /* 网格最大宽度 */
+    margin: left;   /* 居中整个网格 */
+}
+.grid-2x2 > div {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 16:9比例 */
+    overflow: hidden;      /* 超出部分裁剪 */
+}
+.grid-2x2 > div img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* 图片填充并裁剪 */
+    transform: translate(-50%, -50%); /* 居中裁剪 */
+}
+@media (max-width: 768px) {
+    .header {
+        height: 300px;
+    }
+    .header-title {
+        font-size: 1.8rem;
+    }
+    .header-text {
+        font-size: 0.9rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (min-width: 800px) {
+    .header-background {
+        top: 75px;
+    }
+}

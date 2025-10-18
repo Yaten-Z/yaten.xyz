@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常生活</title>
+    <link rel="stylesheet" href="css\gallery.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="pageTitle">图片展示</h1>
+            <p class="subtitle" id="pageSubtitle"></p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const pageTitle = document.getElementById('pageTitle');
+        const pageSubtitle = document.getElementById('pageSubtitle');
+
+        // 加载 JSON 文件
+        fetch('data/gallery/life.json')
+            .then(response => response.json())
+            .then(data => {
+                pageTitle.textContent = data.title || '图片展示';
+                if (data.subtitle) {
+                    pageSubtitle.textContent = data.subtitle;
+                }
+                renderGallery(data.images);
+            })
+            .catch(error => {
+                gallery.innerHTML = '<p style="color: #999; padding: 40px; text-align: center;">无法加载 gallery.json 文件</p>';
+                console.error('Error loading gallery.json:', error);
+            });
+
+        function renderGallery(images) {
+            gallery.innerHTML = '';
+            images.forEach((url, index) => {
+                const card = document.createElement('div');
+                card.className = 'image-card';
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = `Image ${index + 1}`;
+                img.onclick = () => openModal(url);
+                card.appendChild(img);
+                gallery.appendChild(card);
+            });
+        }
+
+        function openModal(src) {
+            modalImg.src = src;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>

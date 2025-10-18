@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday LINMOH! 🎂</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    :root {
+      --bg-color:#0d1b2a; --text-color:#fff;
+      --accent-color:#4dafff; --secondary-color:#82cfff;
+      --gold-color:#e6f1ff;
+      --text-shadow:0 2px 4px rgba(0,0,0,0.7);
+      --card-bg:rgba(255,255,255,0.08);
+      --card-border:rgba(255,255,255,0.15);
+    }
+    [data-theme="light"] {
+      --bg-color:#f0f8ff; --text-color:#1a2a3a;
+      --accent-color:#1e90ff; --secondary-color:#5dade2;
+      --gold-color:#4682b4;
+      --text-shadow:0 1px 2px rgba(255,255,255,0.8);
+      --card-bg:rgba(255,255,255,0.9); --card-border:rgba(0,0,0,0.08);
+    }
+    html,body{height:100%;overflow:hidden;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      background:linear-gradient(135deg,var(--bg-color),#1b263b);
+      color:var(--text-color);transition:.3s;}
+    [data-theme="light"] body{background:linear-gradient(135deg,var(--bg-color),#fff);}
+    .theme-toggle{position:fixed;top:30px;right:30px;z-index:1000;width:50px;height:50px;
+      border-radius:50%;border:none;background:var(--card-bg);color:var(--accent-color);
+      font-size:1.2rem;cursor:pointer;backdrop-filter:blur(10px);
+      border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;}
+    .theme-toggle:hover{transform:scale(1.1);background:var(--accent-color);color:var(--bg-color);}
+    .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      padding:4rem 2rem 2rem;text-align:center;position:fixed;top:0;left:0;width:100%;
+      opacity:0;transform:translateY(50px);transition:.8s;overflow-y:auto;z-index:1;}
+    .page.visible{opacity:1;transform:translateY(0);z-index:10;}
+    .page.hidden{opacity:0;transform:translateY(-50px);pointer-events:none;}
+    .page-title{font-size:3.5rem;font-weight:700;margin-bottom:2rem;text-shadow:var(--text-shadow);
+      background:linear-gradient(45deg,var(--accent-color),var(--secondary-color));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      animation:shimmer 3s ease-in-out infinite;}
+    @keyframes shimmer{0%,100%{opacity:1;}50%{opacity:.8;}}
+    .content-card{background:var(--card-bg);backdrop-filter:blur(15px);border-radius:25px;
+      padding:3rem;margin:2rem 0;border:1px solid var(--card-border);
+      box-shadow:0 15px 35px rgba(0,0,0,.3);max-width:800px;width:100%;}
+    .content-text{font-size:1.3rem;line-height:1.8;margin-bottom:1.5rem;text-shadow:var(--text-shadow);}
+    .highlight{color:var(--accent-color);font-weight:600;}
+    .date-highlight{color:var(--gold-color);font-weight:700;font-size:1.5rem;}
+    .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;
+      border:4px solid var(--accent-color);margin:1rem 0;box-shadow:0 8px 20px rgba(0,0,0,.4);}
+    /* 子项小卡片 */
+    .timeline-item,.gratitude-item{background:var(--card-bg);border:1px solid var(--card-border);
+      border-radius:15px;padding:1rem 1.5rem;margin:1rem 0;text-align:left;}
+    .timeline-date{font-weight:600;color:var(--accent-color);margin-bottom:.5rem;}
+    .gratitude-item{display:flex;align-items:center;gap:.8rem;}
+    .gratitude-item i{color:var(--secondary-color);}
+    .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;opacity:.7;
+      animation:float 2s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-10px);}}
+    .scroll-hint i{font-size:2rem;color:var(--secondary-color);}
+    .scroll-hint span{font-size:.9rem;color:var(--text-color);}
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题"><i class="fas fa-sun"></i></button>
+
+  <!-- 第一页 -->
+  <div class="page visible" id="page1">
+    <h1 class="page-title">🎂 Happy Birthday!</h1>
+    <div class="content-card">
+      <img class="avatar" src="https://s1.imagehub.cc/images/2025/07/30/0a2c858f1fa7d7ff3d480b9e2ab3dce0.jpg" alt="LINMOH头像">
+      <p class="content-text">亲爱的 <span class="highlight">LINMOH</span>，<br><br>
+      今天是你的生日，<span class="date-highlight">09月21日</span><br>
+      愿这个特别的日子充满欢声笑语，<br>愿你的每一个愿望都能实现！</p>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-mouse"></i><span>滚动鼠标继续</span></div>
+  </div>
+
+  <!-- 第二页 -->
+  <div class="page" id="page2">
+    <h1 class="page-title">✨ 我们的友谊</h1>
+    <div class="content-card">
+      <div class="timeline-item"><div class="timeline-date">2025.05.25</div><div>相识的第一天<br>命运让我们相遇，友谊的种子开始萌芽</div></div>
+      <div class="timeline-item"><div class="timeline-date">2025.09.21</div><div>今天是你的生日<br>我们已经认识了 <span class="highlight">119天</span>！</div></div>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-mouse"></i><span>继续滚动</span></div>
+  </div>
+
+  <!-- 第三页 -->
+  <div class="page" id="page3">
+    <h1 class="page-title">🙏 感谢有你</h1>
+    <div class="content-card">
+      <p class="content-text">在这119天里，感谢你带给我的所有美好...</p>
+      <div class="gratitude-item"><i class="fas fa-smile"></i><span>感谢你的每一次大笑，让我的世界更加明亮</span></div>
+      <div class="gratitude-item"><i class="fas fa-comments"></i><span>感谢我们分享的每一次交流</span></div>
+      <div class="gratitude-item"><i class="fas fa-gift"></i><span>感谢你让我的生活充满惊喜</span></div>
+    </div>
+    <div class="scroll-hint"><i class="fas fa-mouse"></i><span>最后一页</span></div>
+  </div>
+
+  <!-- 第四页 -->
+  <div class="page" id="page4">
+    <h1 class="page-title">🌟 生日愿望</h1>
+    <div class="content-card">
+      <p class="content-text">愿你在新的一年里：</p>
+      <div class="gratitude-item"><i class="fas fa-heart"></i><span>健康快乐，每天都充满活力</span></div>
+      <div class="gratitude-item"><i class="fas fa-sun"></i><span>心想事成，前路光明</span></div>
+      <div class="gratitude-item"><i class="fas fa-crown"></i><span>Be Yourself</span></div>
+      <p class="content-text" style="margin-top:2rem;font-size:1.5rem;">
+        <span class="highlight">生日快乐，LINMOH！</span><br>
+        <span style="font-size:1rem;opacity:.8;">— From your friend, Yaten-Z</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let currentPage=1,totalPages=4,isScrolling=false;
+    function toggleTheme(){const h=document.documentElement,i=document.querySelector('.theme-toggle i');
+      if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');i.className='fas fa-sun';localStorage.setItem('theme','dark');}
+      else{h.setAttribute('data-theme','light');i.className='fas fa-moon';localStorage.setItem('theme','light');}}
+    function initTheme(){const s=localStorage.getItem('theme')||'dark',h=document.documentElement,i=document.querySelector('.theme-toggle i');
+      if(s==='light'){h.setAttribute('data-theme','light');i.className='fas fa-moon';}else{i.className='fas fa-sun';}}
+    function showPage(n){document.querySelectorAll('.page').forEach(p=>{p.classList.remove('visible');p.classList.add('hidden');p.scrollTop=0;});
+      const t=document.getElementById(`page${n}`);if(t){setTimeout(()=>{t.classList.remove('hidden');t.classList.add('visible');t.scrollTop=0;},100);}}
+    function handleScroll(e){e.preventDefault();if(isScrolling)return;const el=document.getElementById(`page${currentPage}`),atTop=el.scrollTop===0,atBottom=el.scrollTop+el.clientHeight>=el.scrollHeight-5;
+      if(e.deltaY>0){if(!atBottom&&el.scrollHeight>el.clientHeight)return;else if(currentPage<totalPages){isScrolling=true;currentPage++;showPage(currentPage);setTimeout(()=>isScrolling=false,1000);}}
+      else{if(!atTop&&el.scrollHeight>el.clientHeight)return;else if(currentPage>1){isScrolling=true;currentPage--;showPage(currentPage);setTimeout(()=>isScrolling=false,1000);}}}
+    function handleKeydown(e){if(e.key==='ArrowDown'&&currentPage<totalPages){currentPage++;showPage(currentPage);}else if(e.key==='ArrowUp'&&currentPage>1){currentPage--;showPage(currentPage);}}
+    let touchStartY=0;function handleTouchStart(e){touchStartY=e.touches[0].clientY;}
+    function handleTouchEnd(e){const diff=touchStartY-e.changedTouches[0].clientY;if(Math.abs(diff)>50){if(diff>0&&currentPage<totalPages){currentPage++;showPage(currentPage);}else if(diff<0&&currentPage>1){currentPage--;showPage(currentPage);}}}
+    document.addEventListener('DOMContentLoaded',()=>{initTheme();window.addEventListener('wheel',handleScroll,{passive:false});window.addEventListener('keydown',handleKeydown);
+      window.addEventListener('touchstart',handleTouchStart);window.addEventListener('touchend',handleTouchEnd);});
+  </script>
+</body>
+</html>
