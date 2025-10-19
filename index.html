@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yaten - 个人主页</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="css/base.css" />
 </head>
-
 <body>
     <!-- 顶部导航栏 -->
     <div class="top-links">
-        <a href="https://blog.yaten.xyz">[Blog]</a>
-        <a href="https://blog.yaten.xyz/links/">[Friends]</a>
-        <a href="https://taten.xyz">[TATEN]</a>
-        <a href="#contact">[Follow Me]</a>
+        <div class="top-links-center">
+            <a href="https://blog.yaten.xyz">[Blog]</a>
+            <a href="https://blog.yaten.xyz/links/">[Friends]</a>
+            <a href="https://taten.xyz">[TATEN]</a>
+            <a href="#contact">[Follow Me]</a>
+        </div>
+        <a href="/en.html" style="margin-left: auto;">[English]</a>
     </div>
 
-    <!-- 视频背景区 -->
-    <header class="header">
-        <video class="header-background" autoplay muted loop playsinline>
-            <source src="data/video/intro.mp4" type="video/mp4" />
-        </video>
-    </header>
 
     <!-- 主体内容 -->
     <main class="content">
@@ -37,8 +31,7 @@
 
             <p><strong>爱好方面</strong>，我热爱音乐 & 文案，这些爱好教会我观察世界的方式——发现模式、寻找对比、追求平衡——这些品质同样重要地贯穿在代码设计中。</p>
 
-            <p>我所在的 <strong>TATEN 团队</strong>
-                由一群热爱计算机的学生组成，我们相信「代码的浪漫」——每一个项目都是对技术与创意的尊重，都是用热度记录青春的方式。在这个团队里，我不仅学会了怎样编程，更学会了如何与他人协作、如何将想法变成现实。</p>
+            <p>我所在的 <strong>TATEN 团队</strong> 由一群热爱计算机的学生组成，我们相信「代码的浪漫」——每一个项目都是对技术与创意的尊重，都是用热度记录青春的方式。在这个团队里，我不仅学会了怎样编程，更学会了如何与他人协作、如何将想法变成现实。</p>
 
             <p>我对新事物始终保持好奇心。奇奇怪怪的创意想法、未知的技术领域、有趣的协作机会——这些都能让我兴奋。如果你对代码、设计、或任何创意项目感兴趣，欢迎和我交流。</p>
 
@@ -48,17 +41,19 @@
         <section id="hobby" class="section">
             <h1>Interests</h1>
             <p>吃货、学习、Coding</p>
-            <div class="interest-image">
-                <a href="gallery-eat.html">
-                    <img src="https://s1.imagehub.cc/images/2025/10/18/84fb52b69188ce6dcb6226326786eb70.jpg" alt="吃货" />
-                </a>
-                <div class="image-title">吃货世界</div>
-            </div>
-            <div class="interest-image">
-                <a href="gallery-life.html">
-                    <img src="https://s1.imagehub.cc/images/2025/10/18/3f1d27a5772b3669df22affd6b438b9c.jpg" alt="吃货" />
-                </a>
-                <div class="image-title">日常生活</div>
+            <div class="interests-container">
+                <div class="interest-image">
+                    <a href="gallery-eat.html">
+                        <img src="https://s1.imagehub.cc/images/2025/10/18/84fb52b69188ce6dcb6226326786eb70.jpg" alt="吃货" />
+                    </a>
+                    <div class="image-title">吃货世界</div>
+                </div>
+                <div class="interest-image">
+                    <a href="gallery-life.html">
+                        <img src="https://s1.imagehub.cc/images/2025/10/18/3f1d27a5772b3669df22affd6b438b9c.jpg" alt="日常生活" />
+                    </a>
+                    <div class="image-title">日常生活</div>
+                </div>
             </div>
         </section>
 
@@ -66,17 +61,17 @@
             <h1>Team - TATEN</h1>
             <p>我来自 <strong>TATEN 团队</strong> —— 一群热爱编程与创造的学生。</p>
             <p>我们相信「代码的浪漫」，用项目记录青春的热度。</p>
-            <a href="https://taten.xyz">探索更多关于 TATEN</a>
-            <blockquote>TATEN <br>在网络的另一端，我们相遇；<br>在代码与梦想之间，我们并肩前行</blockquote>
+            <p><a href="https://taten.xyz" style="color: #2c3e50; text-decoration: none; font-weight: 600;">探索更多关于 TATEN →</a></p>
+            <blockquote>TATEN<br>在网络的另一端，我们相遇；<br>在代码与梦想之间，我们并肩前行</blockquote>
         </section>
 
         <section id="project" class="section">
             <h1>Projects</h1>
             <ul>
-                <li><a href="https://blog.yaten.xyz">[My Blog]</a>： Hexo + Butterfly，记录思考与成长</li>
-                <li><a href="https://github.com/TATENcn/NeoPage">[NeoPage]</a>：轻量级个人主页模板</li>
-                <li><a href="https://taten.xyz">[TATEN]</a>：计算机科学交流团队</li>
-                <li><a href="https://guyang17.github.io">[GuYang17's Blog]</a>：搭建技术Blog</li>
+                <li><a href="https://blog.yaten.xyz">[My Blog]</a> — Hexo + Butterfly，记录思考与成长</li>
+                <li><a href="https://github.com/TATENcn/NeoPage">[NeoPage]</a> — 轻量级个人主页模板</li>
+                <li><a href="https://taten.xyz">[TATEN]</a> — 计算机科学交流团队</li>
+                <li><a href="https://guyang17.github.io">[GuYang17's Blog]</a> — 搭建技术Blog</li>
             </ul>
         </section>
 
@@ -103,5 +98,4 @@
         <p>Copyright © 2025 Yaten-Z. All rights reserved.</p>
     </footer>
 </body>
-
 </html>
