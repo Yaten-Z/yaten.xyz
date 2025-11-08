@@ -1,0 +1,148 @@
+/* 友链容器 */
+.friends-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+/* 友链卡片链接 */
+.friend-card-link {
+    text-decoration: none;
+}
+
+/* 友链卡片 */
+.friend-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 160px;
+}
+
+.friend-card-link:hover .friend-card {
+    transform: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* 友链头像 */
+.friend-avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    transition: none;
+}
+
+.friend-card:hover .friend-avatar {
+    transform: none;
+}
+
+/* 友链信息 */
+.friend-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.friend-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.friend-desc {
+    font-size: 0.95rem;
+    color: #777;
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.friend-link::after {
+    content: '';
+    display: none;
+}
+
+/* 申请友链信息框 */
+.requirement-box {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(44, 62, 80, 0.04);
+    border-left: 4px solid #2c3e50;
+    border-radius: 8px;
+}
+
+.requirement-box ul li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    padding-left: 0;
+}
+
+.friend-info-box {
+    margin: 1.5rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.friend-info-box p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.friend-info-box strong {
+    color: #2c3e50;
+}
+
+/* 加载状态 */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .friends-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .friend-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .friend-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .friend-info {
+        align-items: center;
+    }
+
+    .friend-link {
+        margin-top: 0.5rem;
+    }
+
+    .requirement-box {
+        padding: 1.5rem;
+    }
+
+    .friend-info-box {
+        padding: 1.5rem;
+    }
+}
